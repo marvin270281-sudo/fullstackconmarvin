@@ -96,40 +96,7 @@ function publicarResumo() {
 }
 
 
-// 🌗 Alternância de tema, som e gotas visuais
-const btnTema = document.getElementById("toggleTema");
-const icono = document.getElementById("iconoTema");
-const somChuva = document.getElementById("somChuva");
 
-if (btnTema) {
-  btnTema.addEventListener("click", () => {
-    const body = document.body;
-    body.classList.toggle("noche");
-
-    const modoNoite = body.classList.contains("noche");
-    if (icono) {
-      icono.className = modoNoite ? "fas fa-sun" : "fas fa-moon";
-    }
-    
-    const spanTxt = btnTema.querySelector("span");
-    if (spanTxt) {
-      spanTxt.textContent = modoNoite ? " Modo Día" : " Modo Noche";
-    }
-
-    if (somChuva) {
-      if (modoNoite) {
-        if (typeof criarGotasDeChuva === "function") criarGotasDeChuva();
-        somChuva.volume = 1.0;
-        somChuva.play();
-      } else {
-        const chuva = document.querySelector(".chuva");
-        if (chuva) chuva.innerHTML = "";
-        somChuva.pause();
-        somChuva.currentTime = 0;
-      }
-    }
-  });
-}
 
 
 
