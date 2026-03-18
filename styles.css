@@ -42,7 +42,7 @@ body {
 
 /* 🌞 Modo claro / Día */
 body.noche {
-  background: url('') no-repeat center center fixed !important;
+ 
   background-size: cover !important;
   color: #102a43 !important;
 }
