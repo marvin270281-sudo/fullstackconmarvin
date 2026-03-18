@@ -15,7 +15,7 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 /* Estilo específico para la home (imagen de fondo) */
-body.home .navbar {
+body.home  {
     background-image: url('img/foto-inicionoche.jpg');
     background-size: cover;
     background-position: center;
