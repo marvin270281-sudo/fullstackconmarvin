@@ -5,7 +5,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #050a1f; /* Navy blue/black mix */
   background-size: cover;
-  background-image: url('img/foto-inicionoche.jpg');
+  background-image: url('');
   color: #e2e8f0;
   display: flex;
   flex-direction: column;
@@ -13,6 +13,12 @@ body {
   min-height: 100vh;
   width: 100%;
   transition: background-color 0.5s ease, color 0.5s ease;
+}
+/* Estilo específico para la home (imagen de fondo) */
+body.home .navbar {
+    background-image: url('img/foto-inicionoche.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 #videoFondo {
