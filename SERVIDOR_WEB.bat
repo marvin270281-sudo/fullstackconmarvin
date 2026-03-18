@@ -8,5 +8,5 @@ echo  Si la cierras, la pagina web dejara de funcionar.
 echo.
 echo  Abriendo tu navegador en 3 segundos...
 timeout /t 3 /nobreak >nul
-start http://localhost:8000/videosestudos/espaciodeestudos.html
+start http://localhost:8000/index.html
 python -m http.server 8000
