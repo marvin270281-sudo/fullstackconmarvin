@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan de Estudio Fullstack - Aprenda Fullstack con Marvin</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="estudios.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Selector de Idiomas -->
+  <div class="language-switcher">
+    <button class="lang-btn active" data-lang="es" title="Español (ES)">🇪🇸</button>
+    <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+    <button class="lang-btn" data-lang="fr" title="Français">🇫🇷</button>
+    <button class="lang-btn" data-lang="pt-br" title="Português (BR)">🇧🇷</button>
+    <button class="lang-btn" data-lang="pt-pt" title="Português (PT)">🇵🇹</button>
+  </div>
+
+  <!-- 🔗 Menú de navegación -->
+  <nav class="navbar modern-navbar">
+    <ul>
+      <li id="logoMarVin">Aprenda Fullstack con Marvin</li>
+      <li><a href="../videosestudos/espaciodeestudos.html" data-i18n="nav_home">Inicio</a></li>
+      <li><a href="../21diasconjava/21diasconjavascript.html" data-i18n="nav_learn_remember">Aprender y Recordar</a></li>
+      <li><a href="../juego/juego.html" data-i18n="nav_learn_fun">Aprender con diversión</a></li>
+
+      <li><a href="index.html" class="active" data-i18n="nav_90_days">Plan 90 Días</a></li>
+    </ul>
+  </nav>
+
+  <!-- 🌗 Botón modo noche -->
+  <button id="toggleTema" class="theme-toggle-modern">
+    <i class="fas fa-moon" id="iconoTema"></i>
+  </button>
+
+  <main class="estudios-container">
+    <header class="estudios-header">
+      <h1 class="gradient-text" data-i18n="hub_title">Plan de Estudio Fullstack 90 Días</h1>
+      <p class="subtitle" data-i18n="hub_subtitle">Domina el desarrollo web desde cero hasta experto</p>
+    </header>
+
+    <div class="cards-grid">
+      <!-- HTML -->
+      <div class="course-card html-card">
+        <div class="icon-wrapper"><i class="fab fa-html5"></i></div>
+        <h2 data-i18n="card_html_title">HTML5</h2>
+        <p data-i18n="card_html_desc">La estructura de la web. Aprende semántica, accesibilidad y SEO.</p>
+        <a href="html.html" class="btn-primary" data-i18n="btn_start_learning">Empezar a Aprender</a>
+      </div>
+
+      <!-- CSS -->
+      <div class="course-card css-card">
+        <div class="icon-wrapper"><i class="fab fa-css3-alt"></i></div>
+        <h2 data-i18n="card_css_title">CSS3</h2>
+        <p data-i18n="card_css_desc">Diseño y estilos. Flexbox, Grid, animaciones y diseño responsivo.</p>
+        <a href="css.html" class="btn-primary" data-i18n="btn_start_learning">Empezar a Aprender</a>
+      </div>
+
+      <!-- JAVASCRIPT -->
+      <div class="course-card js-card">
+        <div class="icon-wrapper"><i class="fab fa-js"></i></div>
+        <h2 data-i18n="card_js_title">JavaScript</h2>
+        <p data-i18n="card_js_desc">Lógica y dinamismo. DOM, ES6+, asincronía y APIs.</p>
+        <a href="javascript.html" class="btn-primary" data-i18n="btn_start_learning">Empezar a Aprender</a>
+      </div>
+
+      <!-- REACT -->
+      <div class="course-card react-card">
+        <div class="icon-wrapper"><i class="fab fa-react"></i></div>
+        <h2 data-i18n="card_react_title">React</h2>
+        <p data-i18n="card_react_desc">Interfaces interactivas. Componentes, estado, hooks y enrutamiento.</p>
+        <a href="react.html" class="btn-primary" data-i18n="btn_start_learning">Empezar a Aprender</a>
+      </div>
+
+      <!-- FULLSTACK -->
+      <div class="course-card fullstack-card">
+        <div class="icon-wrapper"><i class="fas fa-server"></i></div>
+        <h2 data-i18n="card_fullstack_title">Fullstack</h2>
+        <p data-i18n="card_fullstack_desc">Node.js, bases de datos, APIs REST y despliegue de aplicaciones.</p>
+        <a href="fullstack.html" class="btn-primary" data-i18n="btn_start_learning">Empezar a Aprender</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <h3><a href="../creador.html" data-i18n="footer_creator" style="color:#00ff66; text-decoration:none; font-weight:bold;">Haz click aqui conosca creador dela web</a></h3>
+  </footer>
+
+  <script src="../lang.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Practicando HTML5 - Aprenda Fullstack con Marvin</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="language-switcher"
+    style="position: fixed; top: 80px; right: 20px; display: flex; gap: 8px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 8px 12px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.2); z-index: 999;">
+    <button class="lang-btn active" data-lang="es"
+      style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇪🇸</button>
+    <button class="lang-btn" data-lang="en">🇬🇧</button>
+    <button class="lang-btn" data-lang="fr">🇫🇷</button>
+    <button class="lang-btn" data-lang="pt-br">🇧🇷</button>
+    <button class="lang-btn" data-lang="pt-pt">🇵🇹</button>
+  </div>
+
+  <nav class="navbar">
+    <ul>
+      <li id="logoMarVin">Aprenda Fullstack con Marvin</li>
+      <li><a href="/videosestudos/espaciodeestudos.html" data-i18n="nav_home">Inicio</a></li>
+      <li><a href="/javaestudo/javaestudo.html" data-i18n="nav_learn_remember">Aprender y Practicar</a></li>
+      <li><a href="/juego/juego.html" data-i18n="nav_learn_fun">Aprender con diversión</a></li>
+      <li><a href="/estudios/index.html" data-i18n="nav_90_days">Plan 90 Días</a></li>
+    </ul>
+  </nav>
+
+  <audio id="musicaFundo" autoplay loop>
+    <source src="/audio/dontmix.mp3" type="audio/mp3">
+  </audio>
+
+  <div class="control-volumen">
+    <button id="botaoVolume">🔉 Ajustar volumen</button>
+    <input type="range" id="controleVolume" min="0" max="1" step="0.01" value="0.1" style="display: none;">
+  </div>
+
+  <section class="menu dias y temas" style="text-align: center;">
+    <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
+      <a href="practica_html.html" class="btn-practica active">Aprende HTML5</a>
+      <a href="practica_css.html" class="btn-practica">Aprende CSS3</a>
+      <a href="javaestudo.html" class="btn-practica">Aprende JavaScript</a>
+      <a href="practica_react.html" class="btn-practica">Aprende React</a>
+    </div>
+    <h1 style="color: #00ff66;"><strong>Practicando HTML5 con Marvin 🎓</strong></h1>
+    <nav id="menu"></nav>
+  </section>
+
+  <section id="contenido"></section>
+
+  <section class="editor">
+    <h1>💻 Área de práctica HTML</h1>
+    <h1><textarea id="codigo" rows="8" cols="60"><h2>¡Hola HTML!</h2>
+<p>Mi primera estructura en la web.</p></textarea></h1>
+    <button onclick="ejecutar()">Renderizar HTML</button>
+    <div id="resultado" style="background:#fff; color:#000; padding:20px; text-align:left; border-radius:5px;"></div>
+  </section>
+
+  <footer>
+    <h3><a href="../creador.html" data-i18n="footer_creator"
+        style="color:#00ff66; text-decoration:none; font-weight:bold;">Haz click aqui conosca creador dela web</a></h3>
+  </footer>
+
+  <script>
+    const clases = [
+      { titulo: "Día 1 – HTML Básico", contenido: `<h3>El corazón de la Web</h3><p>HTML (HyperText Markup Language) es el esqueleto de toda página de internet. Se compone de elementos o 'etiquetas' (como <code>&lt;h1&gt;</code> o <code>&lt;p&gt;</code>) que le dicen al navegador qué tipo de contenido debe mostrar.</p><p><strong>Reto:</strong> Genera un encabezado <code>&lt;h1&gt;</code> y un párrafo <code>&lt;p&gt;</code> con tu nombre.</p>` },
+      { titulo: "Día 2 – Títulos", contenido: `<h3>Jerarquía de Texto</h3><p>En HTML existen 6 niveles de títulos, desde el <code>&lt;h1&gt;</code> (el más importante, usado para el título principal) hasta el <code>&lt;h6&gt;</code>. Los motores de búsqueda los usan para entender la estructura de tu página.</p><p><strong>Reto:</strong> Crea títulos desde <code>&lt;h1&gt;</code> hasta <code>&lt;h3&gt;</code>.</p>` },
+      { titulo: "Día 3 – Párrafos", contenido: `<h3>Formatos Básicos</h3><p>El texto normal se envuelve en <code>&lt;p&gt;</code>. Puedes darle formato usando <code>&lt;b&gt;</code> o <code>&lt;strong&gt;</code> para negritas, e <code>&lt;i&gt;</code> o <code>&lt;em&gt;</code> para cursivas. ¡Esto le da vida a tu redacción!</p><p><strong>Reto:</strong> Escribe texto con negrita <code>&lt;b&gt;</code>.</p>` },
+      { titulo: "Día 4 – Enlaces", contenido: `<h3>Interconectando páginas</h3><p>La etiqueta <code>&lt;a&gt;</code> (Anchor) convierte texto en un hipervínculo en el que el usuario puede hacer clic. El atributo <code>href</code> indica la dirección web de destino.</p><p><strong>Reto:</strong> Añade un enlace con <code>&lt;a href="https://example.com"&gt;Clic aquí&lt;/a&gt;</code>.</p>` },
+      { titulo: "Día 5 – Imágenes", contenido: `<h3>Contenido Visual</h3><p>La etiqueta de imagen <code>&lt;img&gt;</code> es auto-cerrada y depende completamente de sus atributos: <code>src</code> para la fuente y <code>alt</code> para accesibilidad (describiendo la imagen a invidentes).</p><p><strong>Reto:</strong> Inserta <code>&lt;img src="..." alt="..."&gt;</code>.</p>` },
+      { titulo: "Día 6 – Listas Ordenadas", contenido: `<h3>Paso a Paso</h3><p>Las Listas Ordenadas se crean con <code>&lt;ol&gt;</code> (Ordered List) e indican secuencias numeradas, como una receta o un ranking. Se combinan con elementos <code>&lt;li&gt;</code>.</p><p><strong>Reto:</strong> Crea una receta con 3 pasos <code>&lt;li&gt;</code>.</p>` },
+      { titulo: "Día 7 – Listas Desordenadas", contenido: `<h3>Viñetas y Grupos</h3><p>Si el orden no importa (ej. lista de compras), usamos <code>&lt;ul&gt;</code> (Unordered List). Los navegadores lo representan típicamente con puntos o círculos.</p><p><strong>Reto:</strong> Haz tu lista de la compra con <code>&lt;ul&gt;</code>.</p>` },
+      { titulo: "Día 8 – Atributos Globales", contenido: `<h3>Identificadores en HTML</h3><p>Las etiquetas pueden llevar atributos globales únicos. <code>id=""</code> identifica un solo elemento en toda la web, mientras que <code>class=""</code> se usa para agrupar múltiples elementos bajo el mismo estilo CSS.</p><p><strong>Reto:</strong> Crea <code>&lt;div id="main" class="caja"&gt;</code>.</p>` },
+      { titulo: "Día 9 – Tablas Simples", contenido: `<h3>Datos Tabulares</h3><p>Las tablas ordenan datos rígidos. Se inician con <code>&lt;table&gt;</code>. Dentro de ella, <code>&lt;tr&gt;</code> crea una fila, y <code>&lt;td&gt;</code> introduce una celda o columna en esa fila.</p><p><strong>Reto:</strong> Haz una tabla con 1 fila y 2 celdas.</p>` },
+      { titulo: "Día 10 – Tablas Avanzadas", contenido: `<h3>Encabezados de Tabla</h3><p>Para hacer más claro el contenido, <code>&lt;th&gt;</code> remplaza a "td" dándole negrita y centrado por defecto para títulos. Puedes agrupar filas también con <code>&lt;thead&gt;</code> y <code>&lt;tbody&gt;</code>.</p><p><strong>Reto:</strong> Añade un <code>&lt;thead&gt;</code> a tu tabla.</p>` },
+      { titulo: "Día 11 – Formularios Básicos", contenido: `<h3>Recolectando Datos</h3><p>El <code>&lt;form&gt;</code> es el contenedor maestro que envuelve todos los controles que un usuario llena para enviar datos a un servidor.</p><p><strong>Reto:</strong> Escribe <code>&lt;form&gt;Hola&lt;/form&gt;</code>.</p>` },
+      { titulo: "Día 12 – Inputs de Texto", contenido: `<h3>El campo universal</h3><p>El rey de los formularios: <code>&lt;input type="text"&gt;</code>. Puedes darle pistas al usuario inyectando el atributo <code>placeholder=""</code>.</p><p><strong>Reto:</strong> Pide al usuario su nombre completo.</p>` },
+      { titulo: "Día 13 – Checkbox y Radio", contenido: `<h3>Selecciones</h3><p>Para encuestas usamos <code>type="radio"</code> cuando solo se puede elegir una, y <code>type="checkbox"</code> para múltiples opciones habilitadas simultáneamente.</p><p><strong>Reto:</strong> Escribe casillas de selección múltiple.</p>` },
+      { titulo: "Día 14 – Botones", contenido: `<h3>Botones Interactivos</h3><p>La etiqueta <code>&lt;button&gt;</code> suele enviar los formularios si carece del atributo "type", o actuar como un botón interactivo para JavaScript si usamos <code>type="button"</code>.</p><p><strong>Reto:</strong> Crea un botón de Registrarse.</p>` },
+      { titulo: "Día 15 – Selects", contenido: `<h3>Menús Desplegables</h3><p>En dispositivos móviles, un <code>&lt;select&gt;</code> lanza el selector nativo del sistema. Contiene múltiples etiquetas hijas <code>&lt;option&gt;</code> que delimitan las opciones del usuario.</p><p><strong>Reto:</strong> Ofrece elegir entre Perro y Gato.</p>` },
+      { titulo: "Día 16 – Textarea", contenido: `<h3>Textos Largos</h3><p>Al contrario que el input, <code>&lt;textarea&gt;</code> permite múltiples renglones para escribir mensajes o comentarios extensos. No requiere atributo type, y cierra explicitamente.</p><p><strong>Reto:</strong> Solicita un comentario abierto.</p>` },
+      { titulo: "Día 17 – Etiquetas Semánticas", contenido: `<h3>La web que nos lee</h3><p>HTML5 trajo <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, y <code>&lt;nav&gt;</code>. Estas no alteran el diseño visual, pero explican a los motores de búsqueda cómo está distribuido el contenido para mejorar tu SEO.</p><p><strong>Reto:</strong> Usa esas etiquetas.</p>` },
+      { titulo: "Día 18 – Section y Article", contenido: `<h3>Organización profunda</h3><p>Un <code>&lt;article&gt;</code> define contenido válido por sí mismo (como una noticia de blog). Una <code>&lt;section&gt;</code> agrupa temas relacionados entre sí.</p><p><strong>Reto:</strong> Mota una sección con un artículo dentro.</p>` },
+      { titulo: "Día 19 – Agrupadores", contenido: `<h3>El comodín Div</h3><p>El <code>&lt;div&gt;</code> es un contenedor de bloque generico para dividir sectores de la app. El <code>&lt;span&gt;</code> hace lo mismo, pero para elementos en línea como palabras y colores aislados.</p><p><strong>Reto:</strong> Agrupa etiquetas.</p>` },
+      { titulo: "Día 20 – Multimedia: Audio", contenido: `<h3>Sonido Nativo</h3><p>La etiqueta <code>&lt;audio&gt;</code> soporta controles nativos del navegador como Play y Pausa si añadimos el atributo "controls".</p><p><strong>Reto:</strong> Inserta <code>&lt;audio controls&gt;...&lt;/audio&gt;</code>.</p>` },
+      { titulo: "Día 21 – Multimedia: Video", contenido: `<h3>Reproducción Nativa</h3><p>De igual forma, <code>&lt;video controls&gt;</code> nos ahorra instalar reproductores molestos de terceros permitiendo ajustar ancho o mute global.</p><p><strong>Reto:</strong> Añade un video falso.</p>` },
+      { titulo: "Día 22 – Iframes", contenido: `<h3>Inyectando páginas enteras</h3><p>El <code>&lt;iframe&gt;</code> incrusta otra página web independiente entera (como YouTube o Mapas) dentro de la tuya como si fuera un marco o ventana asilada.</p><p><strong>Reto:</strong> Crea <code>&lt;iframe src="..."&gt;&lt;/iframe&gt;</code>.</p>` },
+      { titulo: "Día 23 – Formularios 2", contenido: `<h3>Inputs Modernos</h3><p>HTML5 agregó atributos nuevos como <code>type="date"</code> con un calendario, o <code>type="color"</code> para abrir selectores de color RGB sin esfuerzo.</p><p><strong>Reto:</strong> Pide la fecha de cumpleaños.</p>` },
+      { titulo: "Día 24 – Etiquetas Head", contenido: `<h3>El Cerebro de tu página</h3><p>El área <code>&lt;head&gt;</code> está oculta del diseño, pero contiene metaprocesos críticos como "charset" para los acentos y la eñe.</p><p><strong>Reto:</strong> Escribe <code>&lt;meta charset="UTF-8"&gt;</code>.</p>` },
+      { titulo: "Día 25 – Comentarios", contenido: `<h3>Código que no se ve</h3><p>A veces necesitamos dejar notas para el equipo o para nuestro "yo del futuro". El intérprete HTML lo ignora por completo.</p><p><strong>Reto:</strong> Usa <code>&lt;!-- Mi comentario --&gt;</code>.</p>` },
+      { titulo: "Día 26 – Citas", contenido: `<h3>Citas Largas</h3><p>Si copias textual párrafos famosos, la etiqueta <code>&lt;blockquote&gt;</code> le indicará su origen a los lectores de pantalla y buscadores web y le aplica sangría general.</p><p><strong>Reto:</strong> Cita tus frases de motivación.</p>` },
+      { titulo: "Día 27 – Atributos Data", contenido: `<h3>Metadatos Invisibles</h3><p>Puedes guardar mini-datos dinámicos ocultos usando el prefijo "data-". Es oro puro al manipular elementos luego usando JavaScript local.</p><p><strong>Reto:</strong> Crea <code>data-usuario="Marvin"</code> en una etiqueta.</p>` },
+      { titulo: "Día 28 – Campos Requeridos", contenido: `<h3>Forzando Completados</h3><p>Si añades la palabra <code>required</code> a un input de un form, el navegador mostrará alertas nativas y bloqueará el submit si el usuario lo dejó vacío.</p><p><strong>Reto:</strong> Crea un formulario blindado con requeridos.</p>` },
+      { titulo: "Día 29 – Saltos y Líneas", contenido: `<h3>Formatos manuales</h3><p>La etiqueta <code>&lt;br&gt;</code> fuerza al texto a saltar de línea, mientras que <code>&lt;hr&gt;</code> inyecta visualmente una raya separadora temática.</p><p><strong>Reto:</strong> Dibuja líneas <code>&lt;hr&gt;</code> entre títulos.</p>` },
+      { titulo: "Día 30 – Detalles Colapsables", contenido: `<h3>Acordeones sin JS</h3><p>Puedes crear áreas desplegables nativas combinando <code>&lt;details&gt;</code> con un hijo <code>&lt;summary&gt;</code>, haciendo las FAQs instantáneas.</p><p><strong>Reto:</strong> Oculta texto detrás de un clic sin scripts externos.</p>` },
+      { titulo: "Día 31 – Mini Web", contenido: `<h3>¡Conseguido! 🥳</h3><p>Llegó el momento de culminar tu desafío. Estructura una "Landing Page" completamente funcional abarcando cabecera, contenido semántico y pie de página robustos.</p><p><strong>Reto:</strong> ¡Usa todo tu arsenal e innova!</p>` }
+    ];
+
+    const menu = document.getElementById("menu");
+    const contenido = document.getElementById("contenido");
+
+    clases.forEach(clase => {
+      const boton = document.createElement("button");
+      boton.textContent = clase.titulo;
+      boton.onclick = () => {
+        contenido.innerHTML = `<h2>${clase.titulo}</h2><div>${clase.contenido}</div>`;
+      };
+      menu.appendChild(boton);
+    });
+
+    function ejecutar() {
+      const codigo = document.getElementById("codigo").value;
+      const resultado = document.getElementById("resultado");
+      resultado.innerHTML = codigo;
+    }
+  </script>
+
+  <script src="../lang.js"></script>
+  <script src="../script.js"></script>
+  <script src="/js/volumeControl.js"></script>
+</body>
+
+</html>

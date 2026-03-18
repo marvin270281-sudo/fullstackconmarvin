@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudiando Fullstack - Aprenda Fullstack con Marvin</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="estudios.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .topic-header {
+      text-align: center;
+      padding: 60px 20px;
+      /* Gradiente de primary a fullstack accent */
+      background: linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(0, 255, 136, 0.2) 100%);
+      border-radius: 20px;
+      margin-bottom: 40px;
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .topic-header i {
+      font-size: 5rem;
+      color: var(--fullstack-color);
+      margin-bottom: 20px;
+      animation: levitate 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes levitate {
+      from { transform: translateY(0); }
+      to { transform: translateY(-20px); text-shadow: 0 10px 30px rgba(0,255,136,0.6); }
+    }
+
+    .topic-content {
+      background: rgba(20, 20, 25, 0.7);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      line-height: 1.8;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .topic-content h2 {
+      color: var(--fullstack-color);
+      font-size: 2rem;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid rgba(0, 255, 136, 0.3);
+      padding-bottom: 10px;
+    }
+
+    .topic-content ul {
+      list-style-type: none;
+      padding-left: 20px;
+    }
+
+    .topic-content ul li {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .topic-content ul li::before {
+      content: '🚀';
+      position: absolute;
+      left: -30px;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      transition: all 0.3s;
+    }
+
+    .btn-back:hover {
+      background: var(--primary);
+      transform: translateX(-5px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Selector de Idiomas -->
+  <div class="language-switcher">
+    <button class="lang-btn active" data-lang="es" title="Español (ES)">🇪🇸</button>
+    <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+    <button class="lang-btn" data-lang="fr" title="Français">🇫🇷</button>
+    <button class="lang-btn" data-lang="pt-br" title="Português (BR)">🇧🇷</button>
+    <button class="lang-btn" data-lang="pt-pt" title="Português (PT)">🇵🇹</button>
+  </div>
+
+  <main class="estudios-container">
+    <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Volver al Plan 90 Días</a>
+
+    <div class="topic-header">
+      <i class="fas fa-server"></i>
+      <h1 class="gradient-text" style="background: linear-gradient(135deg, #00ff88, #4facfe); -webkit-background-clip: text; background-clip: text;">Fullstack & Backend</h1>
+      <p class="subtitle">Semana 11-13: Cerrando el ciclo entre el cliente y el servidor</p>
+    </div>
+
+    <div class="topic-content">
+      <h2>Módulo 1: Node.js y Express</h2>
+      <p>Entorno de ejecución y API frameworks robustos para servir datos al cliente.</p>
+      <ul>
+        <li>Introducción a Node.js y Node Package Manager (NPM)</li>
+        <li>Creación de un servidor Express básico</li>
+        <li>Rutas, peticiones (req), respuestas (res) y Middlewares</li>
+        <li>Diseño de API RESTful, códigos de estado HTTP</li>
+      </ul>
+
+      <h2>Módulo 2: Bases de Datos (SQL & NoSQL)</h2>
+      <p>Almacenamiento persistente, la fuente de la verdad para aplicaciones reales.</p>
+      <ul>
+        <li>Modelado de datos básicos y relaciones</li>
+        <li>NoSQL: MongoDB con Mongoose (Schemas, Models)</li>
+        <li>SQL Básico: PostgreSQL / MySQL</li>
+        <li>CRUD Funciones: Create, Read, Update, Delete</li>
+      </ul>
+
+      <h2>Módulo 3: Autenticación, Seguridad y Deployment</h2>
+      <p>Asegurando y lanzando tu aplicación completa a la web pública.</p>
+      <ul>
+        <li>Manejo de JSON Web Tokens (JWT) y sesiones seguras localmente</li>
+        <li>Sanitización y validación segura de datos backend</li>
+        <li>Git profundo: Ramas, Pull Requests y resolución de conflictos</li>
+        <li>Cloud Deployment en plataformas (Vercel, Render o Netlify)</li>
+      </ul>
+    </div>
+
+    <!-- 📘 LIBRO PDF -->
+    <div class="topic-content" style="margin-top: 30px; text-align: center;">
+      <h2 style="border-bottom: none;"><i class="fas fa-file-pdf" style="color: #ff4d4d; font-size: 2.5rem; margin-bottom: 10px;"></i><br>Libro de Estudio Oficial</h2>
+      <p>Descarga la guía completa y ejercicios prácticos en formato PDF para dominar el stack completo.</p>
+      <a href="#" class="btn-primary" style="margin-top: 15px; display: inline-block;" data-i18n="btn_download_pdf">
+        <i class="fas fa-download"></i> Descargar Guía en PDF
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <h3><a href="../creador.html" data-i18n="footer_creator" style="color:#00ff66; text-decoration:none; font-weight:bold;">Haz click aqui conosca creador dela web</a></h3>
+  </footer>
+
+  <script src="../lang.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>
+
+

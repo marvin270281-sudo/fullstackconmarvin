@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudiando CSS3 - Aprenda Fullstack con Marvin</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="estudios.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .topic-header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, rgba(38, 77, 228, 0.2) 0%, rgba(20, 20, 25, 0.8) 100%);
+      border-radius: 20px;
+      margin-bottom: 40px;
+      border: 1px solid rgba(38, 77, 228, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .topic-header i {
+      font-size: 5rem;
+      color: var(--css-color);
+      margin-bottom: 20px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); text-shadow: 0 0 20px var(--css-color); }
+      100% { transform: scale(1); }
+    }
+
+    .topic-content {
+      background: rgba(20, 20, 25, 0.7);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      line-height: 1.8;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .topic-content h2 {
+      color: var(--css-color);
+      font-size: 2rem;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid rgba(38, 77, 228, 0.3);
+      padding-bottom: 10px;
+    }
+
+    .topic-content ul {
+      list-style-type: none;
+      padding-left: 20px;
+    }
+
+    .topic-content ul li {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .topic-content ul li::before {
+      content: '⚡';
+      position: absolute;
+      left: -25px;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      transition: all 0.3s;
+    }
+
+    .btn-back:hover {
+      background: var(--css-color);
+      transform: translateX(-5px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Selector de Idiomas -->
+  <div class="language-switcher">
+    <button class="lang-btn active" data-lang="es" title="Español (ES)">🇪🇸</button>
+    <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+    <button class="lang-btn" data-lang="fr" title="Français">🇫🇷</button>
+    <button class="lang-btn" data-lang="pt-br" title="Português (BR)">🇧🇷</button>
+    <button class="lang-btn" data-lang="pt-pt" title="Português (PT)">🇵🇹</button>
+  </div>
+
+  <main class="estudios-container">
+    <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Volver al Plan 90 Días</a>
+
+    <div class="topic-header">
+      <i class="fab fa-css3-alt"></i>
+      <h1 class="gradient-text" style="background: linear-gradient(135deg, #264de4, #2965f1); -webkit-background-clip: text; background-clip: text;">CSS3 & Diseño Responsivo</h1>
+      <p class="subtitle">Semana 3-4: Estilizando y dando vida a la web</p>
+    </div>
+
+    <div class="topic-content">
+      <h2>Módulo 1: Fundamentos de CSS</h2>
+      <p>Entendiendo el cascada, especificidad y el modelo de caja, las bases fundamentales de todo CSS.</p>
+      <ul>
+        <li>Selectores, clases, IDs y pseudo-clases</li>
+        <li>El Box Model (margins, borders, padding, content)</li>
+        <li>Posicionamiento (static, relative, absolute, fixed, sticky)</li>
+        <li>Variables CSS (Custom Properties)</li>
+      </ul>
+
+      <h2>Módulo 2: Layouts Modernos</h2>
+      <p>Atrás quedaron los floats. Aprende a crear estructuras complejas fácilmente con Grid y Flexbox.</p>
+      <ul>
+        <li>Flexbox: Alineación, dirección y distribución de espacio</li>
+        <li>CSS Grid Layout: Filas, columnas y áreas de template</li>
+        <li>Patrones comunes de UI con Flex y Grid</li>
+        <li>Media Queries para Responsive Design (Mobile First)</li>
+      </ul>
+
+      <h2>Módulo 3: Avanzado: Animaciones y Efectos</h2>
+      <p>Dale el efecto "Wow" a tus aplicaciones web a través de transiciones fluidas y transformaciones.</p>
+      <ul>
+        <li>Transiciones CSS y curvas bezier</li>
+        <li>Transformaciones 2D y 3D</li>
+        <li>Keyframes y animaciones complejas</li>
+        <li>Glassmorphism, sombras avanzadas (box-shadow) y gradientes</li>
+      </ul>
+    </div>
+
+    <!-- 📘 LIBRO PDF -->
+    <div class="topic-content" style="margin-top: 30px; text-align: center;">
+      <h2 style="border-bottom: none;"><i class="fas fa-file-pdf" style="color: #ff4d4d; font-size: 2.5rem; margin-bottom: 10px;"></i><br>Libro de Estudio Oficial</h2>
+      <p>Descarga la guía completa y ejercicios prácticos en formato PDF para dominar CSS3.</p>
+      <a href="#" class="btn-primary" style="margin-top: 15px; display: inline-block;" data-i18n="btn_download_pdf">
+        <i class="fas fa-download"></i> Descargar Guía en PDF
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <h3><a href="../creador.html" data-i18n="footer_creator" style="color:#00ff66; text-decoration:none; font-weight:bold;">Haz click aqui conosca creador dela web</a></h3>
+  </footer>
+
+  <script src="../lang.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>
+
+

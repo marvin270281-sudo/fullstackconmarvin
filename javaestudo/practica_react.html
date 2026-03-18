@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Practicando React - Aprenda Fullstack con Marvin</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div class="language-switcher" style="position: fixed; top: 80px; right: 20px; display: flex; gap: 8px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 8px 12px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.2); z-index: 999;">
+    <button class="lang-btn active" data-lang="es" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇪🇸</button>
+    <button class="lang-btn" data-lang="en">🇬🇧</button>
+    <button class="lang-btn" data-lang="fr">🇫🇷</button>
+    <button class="lang-btn" data-lang="pt-br">🇧🇷</button>
+    <button class="lang-btn" data-lang="pt-pt">🇵🇹</button>
+  </div>
+
+  <nav class="navbar">
+    <ul>
+      <li id="logoMarVin">Aprenda Fullstack con Marvin</li>
+      <li><a href="/videosestudos/espaciodeestudos.html" data-i18n="nav_home">Inicio</a></li>
+      <li><a href="/javaestudo/javaestudo.html" data-i18n="nav_learn_remember">Aprender y Practicar</a></li>
+      <li><a href="/juego/juego.html" data-i18n="nav_learn_fun">Aprender con diversión</a></li>
+      <li><a href="/estudios/index.html" data-i18n="nav_90_days">Plan 90 Días</a></li>
+    </ul>
+  </nav>
+
+  <audio id="musicaFundo" autoplay loop>
+    <source src="/audio/dontmix.mp3" type="audio/mp3">
+  </audio>
+
+  <div class="control-volumen">
+    <button id="botaoVolume">🔉 Ajustar volumen</button>
+    <input type="range" id="controleVolume" min="0" max="1" step="0.01" value="0.1" style="display: none;">
+  </div>
+
+  <section class="menu dias y temas" style="text-align: center;">
+    <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
+      <a href="practica_html.html" class="btn-practica">Aprende HTML5</a>
+      <a href="practica_css.html" class="btn-practica">Aprende CSS3</a>
+      <a href="javaestudo.html" class="btn-practica">Aprende JavaScript</a>
+      <a href="practica_react.html" class="btn-practica active">Aprende React</a>
+    </div>
+    <h1 style="color: #61dafb;"><strong>Practicando React con Marvin ⚛️</strong></h1>
+    <nav id="menu"></nav>
+  </section>
+
+  <section id="contenido"></section>
+
+  <section class="editor">
+    <h1>💻 Área de renderizado JSX</h1>
+    <div id="resultado" style="background:#fff; color:#000; padding:20px; border-radius:5px; margin-bottom: 15px; text-align:center;">
+      <em>Tu componente React aparecerá aquí.</em>
+    </div>
+    
+    <h1><textarea id="codigo" rows="12" cols="60">function Contador() {
+  const [likes, setLikes] = React.useState(0);
+  
+  return (
+    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+      <h2 style={{ color: '#61dafb' }}>¡Hola desde React!</h2>
+      <button onClick={() => setLikes(likes + 1)} style={{ padding: '10px 20px', background: '#333', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+        👍 Me gusta ({likes})
+      </button>
+    </div>
+  );
+}
+
+ReactDOM.render(<Contador />, document.getElementById('resultado'));</textarea></h1>
+    <button onclick="ejecutar()">Renderizar React</button>
+  </section>
+
+  <footer>
+    <h3><a href="../creador.html" data-i18n="footer_creator" style="color:#00ff66; text-decoration:none; font-weight:bold;">Haz click aqui conosca creador dela web</a></h3>
+  </footer>
+
+  <script>
+    const clases = [
+      { titulo: "Día 1 – Tu primer Componente", contenido: `<h3>Bloques de Lego</h3><p>En React, la UI se rompe en componentes independientes y reusables. Las funciones de JavaScript retornan HTML estructurado directamente mediante JSX.</p><p><strong>Reto:</strong> Escribe tu primer componente: <br><code>function Saludo() { return &lt;h1&gt;Hola&lt;/h1&gt;; }</code></p>` },
+      { titulo: "Día 2 – Reutilización", contenido: `<h3>Constructor Inagotable</h3><p>Una vez declarado un componente, puedes llamarlo como si fuera una etiqueta HTML nativa. Esto permite multiplicar elementos visuales sin copiar y pegar el código original.</p><p><strong>Reto:</strong> Llama el mismo componente varias veces: <code>&lt;Saludo /&gt;&lt;Saludo /&gt;</code></p>` },
+      { titulo: "Día 3 – Fragmentos", contenido: `<h3>Nodos Invisibles</h3><p>React prohíbe retornar más de una etiqueta "padre" en el return. En lugar de ensuciar el DOM con contenedores div basura, usa fragmentos.</p><p><strong>Reto:</strong> Envuelve todo con <code>&lt;React.Fragment&gt;</code> o <code>&lt;&gt;&lt;/&gt;</code>.</p>` },
+      { titulo: "Día 4 – Props Básicas", contenido: `<h3>Herencia Dinámica</h3><p>Las Props permiten inyectar parámetros de un compoente padre hacia los hijos, volviendo a los botones o tarjetas dinámicos y personalizables.</p><p><strong>Reto:</strong> Pasa texto a un hijo: <code>&lt;Saludo nombre="Marvin" /&gt;</code></p>` },
+      { titulo: "Día 5 – Múltiples Props", contenido: `<h3>Datos Ricos</h3><p>Puedes pasar booleanos, arreglos u objetos complejos a tus Props utilizando llaves <code>{}</code> en lugar de comillas simples.</p><p><strong>Reto:</strong> Evalúa múltiples valores: <code>&lt;Boton valor={10} activo={true}/&gt;</code></p>` },
+      { titulo: "Día 6 – Render Condicional (if)", contenido: `<h3>Rutas lógicas</h3><p>Puedes interrumpir o alterar todo un renderizado devolviendo diferentes etiquetas si una condición es verdadera usando if clásicos al inicio de tu función.</p><p><strong>Reto:</strong> Despliega vistas limpiamente: <code>if(logueado) return &lt;Log /&gt;;</code></p>` },
+      { titulo: "Día 7 – Render Condicional (&&)", contenido: `<h3>Operadores lógicos Cortos</h3><p>Si solo quieres renderizar algo si cumple la condición pero no hacer nada si falla, usa doble ampersand en tu JSX para evitar escribir ifs complejos.</p><p><strong>Reto:</strong> Renderiza si es cierto: <code>{logueado && &lt;Log /&gt;}</code></p>` },
+      { titulo: "Día 8 – Render Condicional (?)", contenido: `<h3>Ternarios Rápidos</h3><p>El operador ternario actúa como un conmutador dentro de la propia UI. Perfecto para pintar un componente O otro instantáneamente dependiento de la flag.</p><p><strong>Reto:</strong> Opción con ternario: <code>{logueado ? &lt;App/&gt; : &lt;Login/&gt;}</code></p>` },
+      { titulo: "Día 9 – Eventos", contenido: `<h3>Reactividad del Usuario</h3><p>Los eventos en React usan formato CamelCase (onClick, onChange) y deben recibir la firma o nombre de una función de flecha, no las comillas de html 5.</p><p><strong>Reto:</strong> Crea interacciones: <code>&lt;button onClick={() => alert('Hola')}&gt;</code></p>` },
+      { titulo: "Día 10 – Estado (useState)", contenido: `<h3>Memoria RAM interna</h3><p>Los componentes funcionales de React no "recuerdan" cosas a menos que usemos hooks. useState crea una bóveda inmutable para guardar puntuaciones y banderas.</p><p><strong>Reto:</strong> Instala un estado: <code>const [valor, setValor] = React.useState(0);</code></p>` },
+      { titulo: "Día 11 – Array State", contenido: `<h3>Colecciones mutables</h3><p>Para arreglos complejos que mutan su memoria, React requiere crear nuevas copias del array usando el operador spread. ¡No uses .push() nativamente jamás!</p><p><strong>Reto:</strong> Usa estado inicial: <code>const [lista, setLista] = React.useState([]);</code></p>` },
+      { titulo: "Día 12 – Listas (map)", contenido: `<h3>Bucles de renderizado</h3><p>El método .map crea dinámicamente infinitas etiquetas JSX basadas en cada elemento individual de tu colección array de datos o de base de datos json originaria.</p><p><strong>Reto:</strong> Itineración eficiente: <code>lista.map(item => &lt;li key={item}&gt;{item}&lt;/li&gt;)</code></p>` },
+      { titulo: "Día 13 – Keys Obligatorios", contenido: `<h3>ADN del Nodo</h3><p>Las Keys dan a los elementos hermanos una identidad super rápida. Esto le dice a React exactamente cuál elemento se borró o modificó, salvando el 70% de cálculos para repintar.</p><p><strong>Reto:</strong> Asigna la prop 'key' o la ID primario en las listas para rendimiento total en iteraciones.</p>` },
+      { titulo: "Día 14 – Formularios", contenido: `<h3>Two-Way Binding simulado</h3><p>En React, el "estado de la verdad" siempre rige al html visual. Obligamos al valor del input a fijarse en nuestra variable para hacer que sea un "Componente Controlado".</p><p><strong>Reto:</strong> Input Controlado: <code>&lt;input value={txt} onChange={e => setTxt(e.target.value)}/&gt;</code></p>` },
+      { titulo: "Día 15 – Prevent Default", contenido: `<h3>Controlando el navegador</h3><p>El comportamiento nativo de HTML al darle botón submit a un formulario, es el de recargar TODA LA PÁGINA. Lo cancelamos interceptándolo nativamente con preventDefault.</p><p><strong>Reto:</strong> Usa <code>e.preventDefault()</code> para detener el Submit web nativo.</p>` },
+      { titulo: "Día 16 – useEffect (Montaje)", contenido: `<h3>El Despertar</h3><p>El Hook de Efectos inyecta ciclos extra a un componente lógico. Poner llaves de arreglo final "[]" vacías significa que la función solo se encenderá 1 Sola Vez al aparecer al inicio.</p><p><strong>Reto:</strong> Call API: <code>React.useEffect(() => { ... }, [])</code></p>` },
+      { titulo: "Día 17 – useEffect (Ciclo)", contenido: `<h3>Reacciones en cadena</h3><p>Si olvidas poner el arreglo final o pones dependencias ahí, el efecto se disparará infinitamente en bucle de la muerte en cada mínima alteración interna del UI.</p><p><strong>Reto:</strong> Identifica fallos lógicos olvidando arreglos pasivos de ciclo cerrado.</p>` },
+      { titulo: "Día 18 – Fetch con React", contenido: `<h3>Llamadas Asíncronas</h3><p>El lugar oficial aprobado por Meta para inyectar llamadas a APIs externas en React con Fetch es siempre dentro de una cápsula de seguridad UseEffect() cerrada por seguridad.</p><p><strong>Reto:</strong> Instala un Fetch nativamente disparado en Mounting del nodo.</p>` },
+      { titulo: "Día 19 – Estilos Inline", contenido: `<h3>Traducciones JS-CSS</h3><p>Si inyectas la propiedad estática HTML 'style' en React con llaves, tu CSS debe pasarse mágicamente a notación CamelCase de JS (ejemplo no es margin-top, es marginTop).</p><p><strong>Reto:</strong> Inline total: <code>style={{ backgroundColor: 'red' }}</code></p>` },
+      { titulo: "Día 20 – Clases Dinámicas", contenido: `<h3>Estados visuales ágiles</h3><p>Alternar las clases de los botones entre CSS "Activo" o CSS "Inactivo" combinando Strings en JSX con variables javascript que tengan valores lógicos (ternarios directos).</p><p><strong>Reto:</strong> Evalúa CSS condicionalmente: <code>className={activo ? "on" : "off"}</code></p>` },
+      { titulo: "Día 21 – Componente Clase", contenido: `<h3>La Pre-Historia de React</h3><p>Antes de 2018 (Versión React 16.8) no existían funciones funcionales con UseState; todo se creaba con programación pesada orientada la de objetos mediante render(). Conocerla da bases fuertes.</p><p><strong>Reto:</strong> Conoce legado: <code>class App extends React.Component { render() { return ...; } }</code></p>` },
+      { titulo: "Día 22 – useRef", contenido: `<h3>Bypass del Dom</h3><p>Refs almacena valores internos mutables que no generarán nuevos Renderizados (a diferencia del State) y se usa 99% la de la veces para atacar de forma agresiva un elemento final del DOM nativo.</p><p><strong>Reto:</strong> Mutar silencioso sin renders: <code>const divRef = React.useRef(null);</code></p>` },
+      { titulo: "Día 23 – Custom Hook", contenido: `<h3>Modularidad Infinita</h3><p>Extrae lógica compleja. Crea un gancho propio 'useContador()' que fusione Effects, States e Interfáces que devuelvan una API personal para reciclar estados masivos.</p><p><strong>Reto:</strong> Modulariza la lógica extrayéndola al gancho especial UseCount genérico.</p>` },
+      { titulo: "Día 24 – Context API Básico", contenido: `<h3>Agujeros de Gusano</h3><p>Estados globales como "Dark/Light mode" o Sesiónes no debieran atravesar 50 niveles intermedios Prop-Drilling inútil. Context Api teletransporta la variable de la Cima a la Base en un microsegundo.</p><p><strong>Reto:</strong> Crea memoria global usando <code>React.createContext()</code>.</p>` },
+      { titulo: "Día 25 – Provider", contenido: `<h3>Bañando la App</h3><p>El Provider de contexto envuelve todo tu Main (App) pasándole un "Value" para que todo componente inyectado por debajo de su escudo absorba indirectamente la de esos estados de forma invisible.</p><p><strong>Reto:</strong> Nutre las tuberías: <code>&lt;ThemeContext.Provider value="dark"&gt;</code>.</p>` },
+      { titulo: "Día 26 – useContext", contenido: `<h3>Interceptación Global</h3><p>Cualquier hijo menor escondido a 50 archivos de profundidad de la App padre usa Context para autoasignarse la variable global sin usar Propertys del ancestro intermedio ciego a esta red profunda.</p><p><strong>Reto:</strong> Reclama telemetría: <code>const tema = React.useContext(ThemeContext);</code></p>` },
+      { titulo: "Día 27 – Elevación de Estado", contenido: `<h3>Inversión de Poder</h3><p>Si la App es un padre y el Login es su hijo, pasamos al hijo una prop especial que trae la herramienta state 'Setter'. El Login activará la herramienta "Hackeando" así el SetState del Padre mayor superior.</p><p><strong>Reto:</strong> Pasa el SetParent a las Props del Menor inferior en el arbol.</p>` },
+      { titulo: "Día 28 – Hooks Comunes", contenido: `<h3>Memorias Ram Caras</h3><p>Protecciones 'useMemo' y 'useCallback' evitan retrasos e impresiones pesadas costosas; le dictan al Motor React que guarde un fotograma del array viejo y no recalcule todo a menos que varíe la variable crucial.</p><p><strong>Reto:</strong> Optimiza las WebApps robustamente densas para computadoras antiguas.</p>` },
+      { titulo: "Día 29 – Error Boundaries", contenido: `<h3>Cajas Fuertes Anti-Bugs</h3><p>Trampas formidables de fallo para UI. Protege ramas del DOM que exploten por errores lógicos internos con límites capturadores Class Exception salvaguardando a las App circundantes del mismo error dominó en blanco fatal.</p><p><strong>Reto:</strong> Aprende a usar las fronteras seguras anti desastre genérico letal de JSX.</p>` },
+      { titulo: "Día 30 – Portales", contenido: `<h3>Inyectores Externos Puros</h3><p>Renderiza ventanas Modal de nivel Z-index crítico escapado dictatorialmente sobre todos los límites de Css relativos; forzndos de su agujero e incrustandose limpios en un div final ajeno al App Router original superior.</p><p><strong>Reto:</strong> Usa la biblioteca nativa externa <code>ReactDOM.createPortal</code>.</p>` },
+      { titulo: "Día 31 – Mini App React Interactivo", contenido: `<h3>¡Experto Front-End! 🥳</h3><p>Estás en el podio. Combinaste la potencia de Múltiples Estados reactivos cerrados, Hooks personalizados condicionales robustos simulados bajo un UseEffect limpio trayendo API ficticia global desde la nada.</p><p><strong>Reto:</strong> Crea un sofisticado Dashboard To-Do List interactivo con Context e inmutables.</p>` }
+    ];
+
+    const menu = document.getElementById("menu");
+    const contenido = document.getElementById("contenido");
+
+    clases.forEach(clase => {
+      const boton = document.createElement("button");
+      boton.textContent = clase.titulo;
+      boton.onclick = () => {
+        contenido.innerHTML = `<h2>${clase.titulo}</h2><div>${clase.contenido}</div>`;
+      };
+      menu.appendChild(boton);
+    });
+
+    function ejecutar() {
+      const codigo = document.getElementById("codigo").value;
+      const resultado = document.getElementById("resultado");
+      try {
+        const transpiled = Babel.transform(codigo, { presets: ["react"] }).code;
+        eval(transpiled);
+      } catch (e) {
+        resultado.innerHTML = `<span style="color:red; font-weight:bold;">Error JSX: ${e.message}</span>`;
+      }
+    }
+  </script>
+  
+  <script src="../lang.js"></script>
+  <script src="../script.js"></script>
+  <script src="/js/volumeControl.js"></script>
+</body>
+</html>
+
+

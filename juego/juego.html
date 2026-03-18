@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cartas JS Interactivas</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+
+    <!-- Selector de Idiomas -->
+  <div class="language-switcher" style="position: fixed; top: 80px; right: 20px; display: flex; gap: 8px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 8px 12px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.2); z-index: 999;">
+    <button class="lang-btn active" data-lang="es" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇪🇸</button>
+    <button class="lang-btn" data-lang="en" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇬🇧</button>
+    <button class="lang-btn" data-lang="fr" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇫🇷</button>
+    <button class="lang-btn" data-lang="pt-br" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇧🇷</button>
+    <button class="lang-btn" data-lang="pt-pt" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇵🇹</button>
+  </div>
+
+    <!-- 🔗 Menú de navegación -->
+  <nav class="navbar">
+    <ul>
+      <li id="logoMarVin">Aprenda Fullstack con Marvin</li>
+      <li><a href="/videosestudos/espaciodeestudos.html" data-i18n="nav_home">Inicio</a></li>
+      <li><a href="/javaestudo/javaestudo.html" data-i18n="nav_learn_remember">Aprender y Recordar</a></li>
+      <li><a href="/juego/juego.html" data-i18n="nav_learn_fun">Aprender con diversión</a></li>
+
+      <li><a href="/estudios/index.html" data-i18n="nav_90_days">Plan 90 Días</a></li>
+</ul>
+  </nav>
+  
+  <audio id="musicaFundo" autoplay loop>
+  <source src="/audio/dontmix.mp3" type="audio/mp3">
+</audio>
+
+<div class="control-volumen">
+  <button id="botaoVolume">🔉 Ajustar volumen</button>
+  <input type="range" id="controleVolume" min="0" max="1" step="0.01" value="0.1" style="display: none;">
+</div>
+
+
+  <div style="margin-top: 150px; text-align: center;">
+    <h1 style="color: #00ff66; text-shadow: 0 0 10px rgba(0,255,102,0.5);">Cartas Educativas de FullStack</h1>
+    <p style="color: #e2e8f0; margin-top: 10px; font-size: 1.2rem;">¡Haz clic en las cartas para descubrir las respuestas y aprender juntos!</p>
+  </div>
+
+  <div class="card-container" style="margin-bottom: 120px;">
+    <!-- JAVASCRIPT -->
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es JavaScript?</h2></div>
+      <div class="back"><h2>Es un lenguaje de programación usado para crear páginas web interactivas.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es una variable?</h2></div>
+      <div class="back"><h2>Es un contenedor para almacenar datos que pueden cambiar durante la ejecución.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es una función en JS?</h2></div>
+      <div class="back"><h2>Un bloque de código reutilizable que ejecuta una tarea específica al ser llamado.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es el DOM?</h2></div>
+      <div class="back"><h2>Es la estructura de objetos (Modelo de Objetos del Documento) que representa una página web interactiva.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué hace <code>addEventListener</code>?</h2></div>
+      <div class="back"><h2>Escucha y asocia una función a un evento específico (como hacer clic o pulsar una tecla).</h2></div>
+    </div>
+
+    <!-- HTML & CSS -->
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué significa HTML?</h2></div>
+      <div class="back"><h2>HyperText Markup Language. Proporciona la estructura semántica de cualquier sitio web.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es CSS?</h2></div>
+      <div class="back"><h2>Cascading Style Sheets. Se utiliza para dar estilo, colores y diseño responsivo a la página web.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es Flexbox?</h2></div>
+      <div class="back"><h2>Un modelo de diseño CSS optimizado para alinear y distribuir elementos en filas o columnas de forma flexible e inteligente.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es el Box Model?</h2></div>
+      <div class="back"><h2>El 'Modelo de Caja' engloba todo elemento web: se compone de margenes (margin), bordes (border), relleno (padding) y contenido.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es CSS Grid Layout?</h2></div>
+      <div class="back"><h2>Un potente sistema de maquetación 2D nativo en CSS basado en definir filas y columnas.</h2></div>
+    </div>
+
+    <!-- JS AVANZADO -->
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es una Arrow Function?</h2></div>
+      <div class="back"><h2>Una sintaxis más corta (<code>=></code>) introducida en ES6 para escribir funciones anónimas en JavaScript.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Para qué sirve <code>map()</code>?</h2></div>
+      <div class="back"><h2>Recorre un arreglo de datos y crea uno NUEVO con los resultados de la función aplicada a cada elemento.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es una Promesa?</h2></div>
+      <div class="back"><h2>Un objeto que representa el fallo o éxito eventual de una operación asíncrona (ej. descargar datos de la base).</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es la API nativa <code>fetch()</code>?</h2></div>
+      <div class="back"><h2>Una función de JavaScript moderno usada pura realizar peticiones asíncronas HTTP a servidores y APIs REST.</h2></div>
+    </div>
+
+    <!-- REACT -->
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es React?</h2></div>
+      <div class="back"><h2>Una poderosa librería de JavaScript desarrollada por Facebook para construir interfaces de usuario basadas en componentes.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es el Estado (State) en React?</h2></div>
+      <div class="back"><h2>Es la memoria interna de un componente. Al cambiar o actualizarse, hace que la interfaz se re-renderice automáticamente.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es un Hook en React?</h2></div>
+      <div class="back"><h2>Funciones especiales (como <code>useState</code> o <code>useEffect</code>) que permiten "engancharse" a características vitales de los componentes funcionales.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es el Virtual DOM?</h2></div>
+      <div class="back"><h2>Una copia ligera y en memoria del DOM real. React lo usa para calcular cambios y actualizar la web rápidamente sin recargar todo.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué son los 'props' en React?</h2></div>
+      <div class="back"><h2>Los atributos o datos pasados de componentes padres a componentes hijos. ¡Ojo! Son de solo lectura.</h2></div>
+    </div>
+
+    <!-- BACKEND & FULLSTACK -->
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es Node.js?</h2></div>
+      <div class="back"><h2>Un entorno de ejecución que permite procesar y usar JavaScript del lado del servidor (backend).</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es una API REST?</h2></div>
+      <div class="back"><h2>Un conjunto de reglas estandarizado que permite a diferentes aplicaciones comunicarse mediante métodos HTTP (GET, POST, PUT, DELETE).</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es SQL?</h2></div>
+      <div class="back"><h2>Structured Query Language. Un lenguaje diseñado específicamente para administrar y consultar bases de datos relacionales robustas.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es Git?</h2></div>
+      <div class="back"><h2>El sistema de control de versiones distribuido más popular, vital para registrar los cambios en nuestro código y trabajar en equipo.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es Express.js?</h2></div>
+      <div class="back"><h2>Un framework web rápido y minimalista para Node.js, frecuentemente utilizado para desarrollar APIs REST.</h2></div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="front"><h2>¿Qué es JWT?</h2></div>
+      <div class="back"><h2>JSON Web Token. Un estándar abierto usado en desarrollo backend para verificar la autenticidad y generar sesiones de login seguras.</h2></div>
+    </div>
+  </div>
+  
+  <footer>
+    <h3><a href="../creador.html" data-i18n="footer_creator" style="color:#00ff66; text-decoration:none; font-weight:bold;">Haz click aqui conosca creador dela web</a></h3>
+  </footer>
+
+  <script src="../lang.js"></script>
+  <script src="../script.js"></script>
+  <script src="script.js"></script>
+  <script src="/js/volumeControl.js"></script>
+</body>
+</html>
+
+

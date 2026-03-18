@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudiando React - Aprenda Fullstack con Marvin</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="estudios.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .topic-header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, rgba(97, 218, 251, 0.2) 0%, rgba(20, 20, 25, 0.8) 100%);
+      border-radius: 20px;
+      margin-bottom: 40px;
+      border: 1px solid rgba(97, 218, 251, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .topic-header i {
+      font-size: 5rem;
+      color: var(--react-color);
+      margin-bottom: 20px;
+      animation: spin 3s linear infinite;
+    }
+
+    .topic-content {
+      background: rgba(20, 20, 25, 0.7);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      line-height: 1.8;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .topic-content h2 {
+      color: var(--react-color);
+      font-size: 2rem;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid rgba(97, 218, 251, 0.3);
+      padding-bottom: 10px;
+    }
+
+    .topic-content ul {
+      list-style-type: none;
+      padding-left: 20px;
+    }
+
+    .topic-content ul li {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .topic-content ul li::before {
+      content: '⚛';
+      color: var(--react-color);
+      position: absolute;
+      left: -25px;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      transition: all 0.3s;
+    }
+
+    .btn-back:hover {
+      background: var(--react-color);
+      color: black;
+      transform: translateX(-5px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Selector de Idiomas -->
+  <div class="language-switcher">
+    <button class="lang-btn active" data-lang="es" title="Español (ES)">🇪🇸</button>
+    <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+    <button class="lang-btn" data-lang="fr" title="Français">🇫🇷</button>
+    <button class="lang-btn" data-lang="pt-br" title="Português (BR)">🇧🇷</button>
+    <button class="lang-btn" data-lang="pt-pt" title="Português (PT)">🇵🇹</button>
+  </div>
+
+  <main class="estudios-container">
+    <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Volver al Plan 90 Días</a>
+
+    <div class="topic-header">
+      <i class="fab fa-react"></i>
+      <h1 class="gradient-text" style="background: linear-gradient(135deg, #61dafb, #00b4d8); -webkit-background-clip: text; background-clip: text;">Ecosistema React</h1>
+      <p class="subtitle">Semana 8-10: Interfaces de usuario reactivas e interactivas</p>
+    </div>
+
+    <div class="topic-content">
+      <h2>Módulo 1: Conceptos Básicos y JSX</h2>
+      <p>Construir piezas modulares independientes y reutilizables.</p>
+      <ul>
+        <li>Entendiendo JSX: HTML dentro de JavaScript</li>
+        <li>Creación de Componentes Funcionales</li>
+        <li>Paso de datos entre componentes (Props)</li>
+        <li>El concepto de Virtual DOM en React</li>
+      </ul>
+
+      <h2>Módulo 2: Manejo de Estado y Hooks</h2>
+      <p>Introducir memoria y comportamiento local a tus componentes.</p>
+      <ul>
+        <li>Introducción a los Hooks: Reglas y Convenciones</li>
+        <li>El Hook useState: Controlando un estado simple</li>
+        <li>El Hook useEffect: Efectos colaterales y ciclo de vida</li>
+        <li>Manejo básico de formularios controlados</li>
+      </ul>
+
+      <h2>Módulo 3: Enrutamiento y Datos Globales</h2>
+      <p>Creación de Single Page Applications (SPAs) dinámicas completas.</p>
+      <ul>
+        <li>Implementación de React Router DOM</li>
+        <li>Recuperación de datos asíncronos en useEffect</li>
+        <li>Conceptos de Context API para el estado global</li>
+        <li>Manejo de rutas protegidas y públicas</li>
+      </ul>
+    </div>
+
+    <!-- 📘 LIBRO PDF -->
+    <div class="topic-content" style="margin-top: 30px; text-align: center;">
+      <h2 style="border-bottom: none;"><i class="fas fa-file-pdf" style="color: #ff4d4d; font-size: 2.5rem; margin-bottom: 10px;"></i><br>🎁 Regalo adicional</h2>
+      <p>Libro gratuito: <strong>“React desde Cero”</strong>.</p>
+      <p>Este libro te ayudará a entender los fundamentos de React con explicaciones claras y ejemplos prácticos.</p>
+      <a href="https://elhacker.info/manuales/Lenguajes%20de%20Programacion/React/Manual%20de%20React.pdf" target="_blank" class="btn-primary" style="margin-top: 15px; display: inline-block;">
+        <i class="fas fa-download"></i> <span data-i18n="btn_download_pdf">Leer o Descargar el libro (PDF)</span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <h3><a href="../creador.html" data-i18n="footer_creator" style="color:#00ff66; text-decoration:none; font-weight:bold;">Haz click aqui conosca creador dela web</a></h3>
+  </footer>
+
+  <script src="../lang.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>
+
+
