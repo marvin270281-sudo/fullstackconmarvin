@@ -5,6 +5,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #050a1f; /* Navy blue/black mix */
   background-size: cover;
+  background-image: url('img/foto-inicionoche.jpg');
   color: #e2e8f0;
   display: flex;
   flex-direction: column;
