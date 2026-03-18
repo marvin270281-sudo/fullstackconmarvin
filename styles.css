@@ -41,7 +41,9 @@ body {
 
 /* 🌞 Modo claro */
 body.noche {
-  background-image: url(img/fundonochecolorido.png);
+  background-image: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%) !important;
+  background-color: #f0f4f8 !important;
+  color: #102a43 !important;
 }
 
 body.noche header,
@@ -49,10 +51,12 @@ body.noche .card .front,
 body.noche .card .back,
 body.noche .formularioPost,
 body.noche .album,
-body.noche .post {
-  background-color: #eceaea16;
-  color: #f3eaeac1;
-  align-items: center;
+body.noche .post,
+body.noche .textoComFundo {
+  background-color: #ffffff;
+  color: #102a43;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #bcccdc;
 }
 
 /* 🌗 Alternância de visibilidade removida para novo layout profissional */
