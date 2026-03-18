@@ -15,11 +15,16 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 /* Estilo específico para la home (imagen de fondo) */
-body.home  {
+/* Esto solo se aplicará a páginas con <body class="pagina-inicio"> */
+.pagina-inicio {
     background-image: url('img/foto-inicionoche.jpg');
-    background-size: cover;
-    background-position: center;
+    background-size: cover;          /* Cubre toda la pantalla */
+    background-position: center;     /* Centra la imagen */
+    background-repeat: no-repeat;    /* No repite la imagen */
+    background-attachment: fixed;    /* Fija la imagen al hacer scroll */
+    min-height: 100vh;               /* Asegura que cubra todo el alto */
 }
+
 
 #videoFondo {
   position: fixed;
