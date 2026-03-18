@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudiando JavaScript - Aprenda Fullstack con Marvin</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="estudios.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .topic-header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, rgba(247, 223, 30, 0.2) 0%, rgba(20, 20, 25, 0.8) 100%);
+      border-radius: 20px;
+      margin-bottom: 40px;
+      border: 1px solid rgba(247, 223, 30, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .topic-header i {
+      font-size: 5rem;
+      color: var(--js-color);
+      margin-bottom: 20px;
+      animation: spin 6s linear infinite;
+    }
+
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+
+    .topic-content {
+      background: rgba(20, 20, 25, 0.7);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      line-height: 1.8;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .topic-content h2 {
+      color: var(--js-color);
+      font-size: 2rem;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid rgba(247, 223, 30, 0.3);
+      padding-bottom: 10px;
+    }
+
+    .topic-content ul {
+      list-style-type: none;
+      padding-left: 20px;
+    }
+
+    .topic-content ul li {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .topic-content ul li::before {
+      content: '{ }';
+      color: var(--js-color);
+      position: absolute;
+      left: -25px;
+      font-weight: bold;
+      font-family: monospace;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      transition: all 0.3s;
+    }
+
+    .btn-back:hover {
+      background: var(--js-color);
+      color: black;
+      transform: translateX(-5px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Selector de Idiomas -->
+  <div class="language-switcher">
+    <button class="lang-btn active" data-lang="es" title="Español (ES)">🇪🇸</button>
+    <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+    <button class="lang-btn" data-lang="fr" title="Français">🇫🇷</button>
+    <button class="lang-btn" data-lang="pt-br" title="Português (BR)">🇧🇷</button>
+    <button class="lang-btn" data-lang="pt-pt" title="Português (PT)">🇵🇹</button>
+  </div>
+
+  <main class="estudios-container">
+    <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Volver al Plan 90 Días</a>
+
+    <div class="topic-header">
+      <i class="fab fa-js"></i>
+      <h1 class="gradient-text" style="background: linear-gradient(135deg, #f7df1e, #d4b806); -webkit-background-clip: text; background-clip: text;">JavaScript Moderno</h1>
+      <p class="subtitle">Semana 5-7: Domina la lógica de programación web</p>
+    </div>
+
+    <div class="topic-content">
+      <h2>Módulo 1: Fundamentos y Lógica</h2>
+      <p>Aprende las bases de la programación aplicadas al lenguaje de la web.</p>
+      <ul>
+        <li>Variables (let, const), Tipos de Datos y Operadores</li>
+        <li>Estructuras de Control: if/else, switch, Bucles (for, while)</li>
+        <li>Funciones tradicionales y Arrow Functions (=>)</li>
+        <li>Arrays, Objetos y métodos básicos</li>
+      </ul>
+
+      <h2>Módulo 2: Manipulación del DOM y Eventos</h2>
+      <p>Conecta la lógica con la interfaz gráfica para crear dinamismo.</p>
+      <ul>
+        <li>Seleccionar y manipular elementos (querySelector, textContent)</li>
+        <li>Modificar estilos y clases usando CSSOM</li>
+        <li>Escuchar eventos (addEventListener, click, submit)</li>
+        <li>Burbujeo y delegación de eventos</li>
+      </ul>
+
+      <h2>Módulo 3: Javascript Avanzado (ES6+)</h2>
+      <p>Entendiendo las bondades del JS moderno y asincronía.</p>
+      <ul>
+        <li>Destructuring, Spread/Rest operators y Literales de Plantilla</li>
+        <li>Conceptos funcionales: map, filter, reduce</li>
+        <li>Asincronía: Callbacks, Promesas, y Async / Await</li>
+        <li>Peticiones HTTP: fetch() API y uso del formato JSON</li>
+      </ul>
+    </div>
+
+    <!-- 📘 LIBRO PDF -->
+    <div class="topic-content" style="margin-top: 30px; text-align: center;">
+      <h2 style="border-bottom: none;"><i class="fas fa-file-pdf" style="color: #ff4d4d; font-size: 2.5rem; margin-bottom: 10px;"></i><br>🎁 Regalo de nuestro AMIGO (Calero)</h2>
+      <p>Libro gratuito: <strong>“JavaScript desde Cero”</strong>.</p>
+      <p>Este libro te ayudará a entender los fundamentos de JavaScript con explicaciones claras y ejemplos prácticos.</p>
+      <a href="https://www.eloquentjavascript.es/" target="_blank" class="btn-primary" style="margin-top: 15px; display: inline-block;">
+        <i class="fas fa-download"></i> <span data-i18n="btn_download_pdf">Leer o Descargar el libro (PDF)</span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <h3><a href="../creador.html" data-i18n="footer_creator" style="color:#00ff66; text-decoration:none; font-weight:bold;">Haz click aqui conosca creador dela web</a></h3>
+  </footer>
+
+  <script src="../lang.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>
+
+

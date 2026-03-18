@@ -1,0 +1,426 @@
+/* 🔧 Corpo da página */
+body {
+  margin-bottom: 30px;
+  padding-bottom: 90px;
+  font-family: Arial, sans-serif;
+  background-color: #050a1f; /* Navy blue/black mix */
+  background-image: linear-gradient(135deg, #02050f 0%, #0a1931 100%);
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+#videoFondo {
+  position: fixed;
+  top: 0; /* ← coloca o vídeo no topo da tela */
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  object-fit: cover;
+  opacity: 0.9;
+  background-repeat: no-repeat;
+}
+
+.textoComFundo {
+  font-family: Arial, sans-serif;
+  background-color: #21211b7b;
+  background-size: auto;
+  /* tom pastel, pode mudar */
+  color: #f4b804;
+  padding: 0px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 6px rgba(252, 198, 2, 0.484);
+  width: 50%;
+  margin: 220px auto;
+}
+
+/* 🌞 Modo claro */
+body.noche {
+  background-image: url(img/fundonochecolorido.png);
+}
+
+body.noche header,
+body.noche .card .front,
+body.noche .card .back,
+body.noche .formularioPost,
+body.noche .album,
+body.noche .post {
+  background-color: #eceaea16;
+  color: #f3eaeac1;
+  align-items: center;
+}
+
+/* 🌗 Alternância de visibilidade removida para novo layout profissional */
+
+/* 🧩 Cabeçalho superior */
+header {
+  width: 100%;
+  background-color: rgba(5, 10, 31, 0.9);
+  padding: 15px 30px;
+  box-shadow: 0 0 15px #00ff66; /* Neon Green Glow */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #00ff66;
+}
+
+/* 🔶 Logo com animações integrado en navbar */
+#logoMarVin {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #00ff66; /* Neon glow color */
+  animation: glow 2s infinite alternate;
+  white-space: nowrap; 
+  pointer-events: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-right: 15px; /* Spans slightly off from the first button */
+}
+
+/* Colores de Logo com animações */
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #00ff66, 0 0 10px #00ff66;
+    color: #ffffff;
+  }
+
+  100% {
+    text-shadow: 0 0 20px #00ff66, 0 0 30px #00ff66;
+    color: #00ff66;
+  }
+}
+
+@keyframes levitar {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* 🌓 Botão de modo Dia/Noite */
+#toggleTema {
+  position: fixed;
+  top: 16px;
+  right: 18px;
+  padding: 8px 14px;
+  background-color: #0a1931;
+  color: #00ff66;
+  border: 1px solid #00ff66;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 200;
+  box-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
+  transition: all 0.3s ease;
+}
+
+#toggleTema:hover {
+  background-color: #00ff66;
+  color: #0a1931;
+  box-shadow: 0 0 15px #00ff66;
+}
+
+body.noche #toggleTema i {
+  transform: rotate(180deg);
+}
+
+#toggleTema i {
+  transition: transform 0.5s ease;
+}
+
+body.noche #toggleTema i {
+  transform: rotate(180deg);
+}
+
+/* 💬 Card de autocuidado */
+.card {
+  width: 320px;
+  min-height: 460px;
+  perspective: 1000px;
+  margin: 30px 0;
+  position: relative;
+}
+/* 💬 Meu Card de autocuidado */
+.card .front,
+.card .back {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  background-color: #dbc4c44e;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+/* 💬 Card de autocuidado */
+.card .back {
+  transform: rotateY(180deg);
+}
+/* 💬 Card de autocuidado */
+.card.girar .front {
+  transform: rotateY(180deg);
+}
+/* 💬 Card de autocuidado */
+.card.girar .back {
+  transform: rotateY(360deg);
+}
+/* 💬 Card de autocuidado */
+/* ✨ Botões estilosos */
+.botones {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+/* 💬 Card de autocuidado */
+.card .back button {
+  background: linear-gradient(135deg, #ff6600, #ff944d);
+  color: rgb(227, 223, 223);
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 102, 0, 0.973);
+  transition: transform 0.2s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+/* 💬 Card de autocuidado */
+.card .back button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(255, 102, 0, 0.6);
+}
+/* 💬 Card de autocuidado */
+.botones button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgb(3, 87, 151);
+}
+
+/* 📝 Campo de publicação estilizado */
+.formularioPost {
+  margin-top: 10px;
+  width: left 10%;
+  background-color: #e8a109d5;
+  padding: 310px;
+  border-radius: 10px;
+}
+
+/* 📝 Campo escribir una publicacion en formulario donde tiene 3 opciones */
+.formularioPost {
+  align-items: center;
+  max-width: 400px;
+  width: 300px;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 17px;
+  background-color: #f6f1f127;
+  color: #010101;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.formularioPost button {
+  display: block;
+  margin: 0 auto;
+  /* centraliza horizontalmente */
+  width: 50%;
+  /* ou 100% se quiser preencher o campo */
+  max-width: 350px;
+  background-color: #146907;
+  color: white;
+  padding: 10px;
+  border: 0;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 🖼️ Meu Álbum Motivacional */
+.album {
+  max-width: 340px;
+  margin-top: 10px;
+  background-color: #e03a3afe;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+}
+/* 🖼️ Meu Álbum Motivacional */
+.album img {
+  width: 100%;
+  height: auto;
+  padding: 0px;
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+/* 🖼️ Meu Álbum Motivacional */
+#fraseFoto {
+  color: #ffcc00;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+/* 🖼️ Meu Álbum Motivacional */
+.controles {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+/* 🖼️ Meu Álbum Motivacional */
+.controles button {
+  background-color: #1b6782;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
+
+/* 🖼️ Meu Álbum Motivacional */
+.post {
+  background-color: rgba(10, 25, 49, 0.8);
+  border-left: 4px solid #00ff66;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  color: #e2e8f0;
+  box-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
+}
+
+/* 🔗 menu de navbar estilo */
+.menuLinks {
+  display: flex;
+  gap: 14px;
+  margin-top: 1px;
+  justify-content: center;
+}
+
+.menuLinks a {
+  background-color: transparent;
+  color: #00ff66;
+  border: 1px solid #00ff66;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.menuLinks a:hover {
+  background-color: #00ff66;
+  color: #050a1f;
+  box-shadow: 0 0 15px #00ff66;
+}
+
+/* 🦶 Rodapé */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  font-size: 11px;
+  background-color: rgba(2, 5, 15, 0.95);
+  color: #00ff66;
+  border-top: 1px solid rgba(0, 255, 102, 0.3);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+body.noche footer {
+  color: #00ff66;
+}
+
+/* 🌐 Navegação fixa com ícones */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(2, 5, 15, 0.95);
+  border-bottom: 1px solid rgba(0, 255, 102, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 255, 102, 0.2);
+  z-index: 100;
+  padding: 10px 0;
+  backdrop-filter: blur(10px);
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.navbar li a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.navbar li a:hover {
+  background-color: rgba(0, 255, 102, 0.1);
+  color: #00ff66;
+  border-color: #00ff66;
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+}
+
+/* 📱 Responsive y Móvil */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 150px;
+  }
+  .navbar ul {
+    gap: 10px;
+    padding: 10px;
+  }
+  .navbar li a {
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
+  .textoComFundo {
+    width: 90%;
+    margin-top: 180px;
+  }
+  #logoMarVin {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+  .card {
+    width: 90%;
+  }
+  .editor textarea {
+    width: 95%;
+  }
+}

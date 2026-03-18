@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Practicando CSS3 - Aprenda Fullstack con Marvin</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="language-switcher" style="position: fixed; top: 80px; right: 20px; display: flex; gap: 8px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 8px 12px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.2); z-index: 999;">
+    <button class="lang-btn active" data-lang="es" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇪🇸</button>
+    <button class="lang-btn" data-lang="en">🇬🇧</button>
+    <button class="lang-btn" data-lang="fr">🇫🇷</button>
+    <button class="lang-btn" data-lang="pt-br">🇧🇷</button>
+    <button class="lang-btn" data-lang="pt-pt">🇵🇹</button>
+  </div>
+
+  <nav class="navbar">
+    <ul>
+      <li id="logoMarVin">Aprenda Fullstack con Marvin</li>
+      <li><a href="/videosestudos/espaciodeestudos.html" data-i18n="nav_home">Inicio</a></li>
+      <li><a href="/javaestudo/javaestudo.html" data-i18n="nav_learn_remember">Aprender y Practicar</a></li>
+      <li><a href="/juego/juego.html" data-i18n="nav_learn_fun">Aprender con diversión</a></li>
+      <li><a href="/estudios/index.html" data-i18n="nav_90_days">Plan 90 Días</a></li>
+    </ul>
+  </nav>
+
+  <audio id="musicaFundo" autoplay loop>
+    <source src="/audio/dontmix.mp3" type="audio/mp3">
+  </audio>
+
+  <div class="control-volumen">
+    <button id="botaoVolume">🔉 Ajustar volumen</button>
+    <input type="range" id="controleVolume" min="0" max="1" step="0.01" value="0.1" style="display: none;">
+  </div>
+
+  <section class="menu dias y temas" style="text-align: center;">
+    <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
+      <a href="practica_html.html" class="btn-practica">Aprende HTML5</a>
+      <a href="practica_css.html" class="btn-practica active">Aprende CSS3</a>
+      <a href="javaestudo.html" class="btn-practica">Aprende JavaScript</a>
+      <a href="practica_react.html" class="btn-practica">Aprende React</a>
+    </div>
+    <h1 style="color: #00ff66;"><strong>Practicando CSS3 con Marvin 🎓</strong></h1>
+    <nav id="menu"></nav>
+  </section>
+
+  <section id="contenido"></section>
+
+  <section class="editor">
+    <h1>💻 Área de práctica CSS</h1>
+    
+    <div id="cajaPrueba" style="width: 150px; height: 150px; background-color: white; color: black; display: flex; align-items: center; justify-content: center; font-weight: bold; margin: 20px auto; border-radius: 8px;">Caja Mágica</div>
+    
+    <h1><textarea id="codigo" rows="8" cols="60">/* Escribe reglas para #cajaPrueba */
+#cajaPrueba {
+  background-color: #00ff66;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #00ff66;
+}</textarea></h1>
+    <button onclick="ejecutar()">Aplicar CSS</button>
+    <style id="estiloInyectado"></style>
+  </section>
+
+  <footer>
+    <h3><a href="../creador.html" data-i18n="footer_creator" style="color:#00ff66; text-decoration:none; font-weight:bold;">Haz click aqui conosca creador dela web</a></h3>
+  </footer>
+
+  <script>
+    const clases = [
+      { titulo: "Día 1 – Sintaxis", contenido: `<h3>El Lenguaje del Diseño</h3><p>CSS (Cascading Style Sheets) separa el contenido visual de la estructura HTML. Cada regla CSS tiene un selector (a quién afecta) y una declaración (propiedad y valor).</p><p><strong>Reto:</strong> Aplica un color al selector: <code>#cajaPrueba { color: blue; }</code></p>` },
+      { titulo: "Día 2 – Fondo", contenido: `<h3>Coloreando capas</h3><p>La propiedad <code>background-color</code> pinta todo el fondo del contenedor. Puedes usar nombres (red), Hexadecimales (#FF0000) o RGB (255,0,0).</p><p><strong>Reto:</strong> Cambia el fondo: <code>#cajaPrueba { background-color: yellow; }</code></p>` },
+      { titulo: "Día 3 – Ancho y Alto", contenido: `<h3>Dimensiones Fijas</h3><p>Las propiedades <code>width</code> y <code>height</code> controlan el tamaño exacto. Usar píxeles (px) crea tamaños rígidos, y porcentajes (%) los hace fluidos a la pantalla.</p><p><strong>Reto:</strong> Prueba: <code>#cajaPrueba { width: 200px; height: 100px; }</code></p>` },
+      { titulo: "Día 4 – Bordes", contenido: `<h3>Cercas visuales</h3><p>La propiedad <code>border</code> es un atajo que recibe tres valores simultáneos: grosor, estilo visual de línea (solid, dashed, dotted) y color.</p><p><strong>Reto:</strong> Crea un borde marcado: <code>#cajaPrueba { border: 5px solid red; }</code></p>` },
+      { titulo: "Día 5 – Border Radius", contenido: `<h3>Suavizando Esquinas</h3><p>El internet moderno repudia las esquinas afiladas. <code>border-radius</code> curva las esquinas en px. Si la caja es cuadrada, poner 50% la vuelve un círculo perfecto.</p><p><strong>Reto:</strong> Vuelve circular la caja: <code>#cajaPrueba { border-radius: 50%; }</code></p>` },
+      { titulo: "Día 6 – Márgenes", contenido: `<h3>Espacio Exterior (Margin)</h3><p>El margin empuja a otros elementos alejándolos. Poner <code>margin: auto;</code> centra mágicamente elementos en bloque horizontalmente si tienen un acho fijo.</p><p><strong>Reto:</strong> Centra tu caja: <code>#cajaPrueba { margin: 50px auto; }</code></p>` },
+      { titulo: "Día 7 – Rellenos", contenido: `<h3>Espacio Interior (Padding)</h3><p>A diferencia del margen, el padding crea espacio **adentro** de los bordes del elemento, empujando el texto hacia su centro.</p><p><strong>Reto:</strong> Agranda el interior: <code>#cajaPrueba { padding: 20px; }</code></p>` },
+      { titulo: "Día 8 – Sombras", contenido: `<h3>Efecto 3D</h3><p><code>box-shadow</code> inyecta sombras. Sus 4 números controlan el eje X (derecha), el eje Y (abajo), la cantidad de desenfoque (blur) y la expansión. Finalmente, declaras el color (RGBA para transparencias).</p><p><strong>Reto:</strong> <code>#cajaPrueba { box-shadow: 10px 10px 15px rgba(0,0,0,0.5); }</code></p>` },
+      { titulo: "Día 9 – Fuentes", contenido: `<h3>Tipografías Web</h3><p>La <code>font-family</code> define qué tipografía usar. Siempre establece fuentes de respaldo separadas por comas, terminando con una familia genérica como "sans-serif".</p><p><strong>Reto:</strong> Cambia la tipografía: <code>#cajaPrueba { font-family: monospace; }</code></p>` },
+      { titulo: "Día 10 – Tamaño Letra", contenido: `<h3>Escala de texto</h3><p><code>font-size</code> dicta el tamaño absoluto (px) o relativo (em/rem). Rem es la mejor práctica actual porque respeta la configuración de accesibilidad del dispositivo del usuario.</p><p><strong>Reto:</strong> Agranda la letra: <code>#cajaPrueba { font-size: 24px; }</code></p>` },
+      { titulo: "Día 11 – Alineación", contenido: `<h3>Dirección del texto</h3><p><code>text-align</code> empuja el texto a los lados (left, right, center) o lo justifica (justify) llenando los costados como un periódico antiguo.</p><p><strong>Reto:</strong> Alíneame: <code>#cajaPrueba { text-align: right; }</code></p>` },
+      { titulo: "Día 12 – Texto Decorado", contenido: `<h3>Tachados y subrayados</h3><p><code>text-decoration</code> inyecta una raya debajo (underline), encima (overline), a través de la palabra (line-through), o quita la decoración azul que traen los links web por defecto ("none").</p><p><strong>Reto:</strong> Subraya el texto: <code>#cajaPrueba { text-decoration: underline; }</code></p>` },
+      { titulo: "Día 13 – Visibilidad", contenido: `<h3>Ocultismo visual</h3><p><code>visibility: hidden;</code> vuelve invisible el objeto pero el espacio sigue ocupado. <code>display: none;</code> lo borra por completo alterando la maquetación que estaba alrededor.</p><p><strong>Reto:</strong> Oculta la caja: <code>#cajaPrueba { visibility: hidden; }</code></p>` },
+      { titulo: "Día 14 – Opacidad", contenido: `<h3>Transparencia alfa</h3><p><code>opacity</code> convierte en transparente o translúcido al elemento entero (hijo y contenido). Sus valores van del 0.0 (fantasma total) al 1.0 (sólido opaco).</p><p><strong>Reto:</strong> Hazlo translúcido: <code>#cajaPrueba { opacity: 0.5; }</code></p>` },
+      { titulo: "Día 15 – Rotación", contenido: `<h3>Dando Vueltas</h3><p>Usando el poderoso atributo <code>transform: rotate()</code>, podemos girar cualquier cuadrante basándonos en grados (ej: 45deg) simulando manipulaciones dinámicas modernas.</p><p><strong>Reto:</strong> Gíralo 45 grados: <code>#cajaPrueba { transform: rotate(45deg); }</code></p>` },
+      { titulo: "Día 16 – Escala", contenido: `<h3>Lupas de Zoom</h3><p>Scale permite hacer encoger (0.5) o agrandar (2.0) componentes vectores e imágenes al doble de tamaño sin recalcular la maqueta principal en el eje X y Y.</p><p><strong>Reto:</strong> Agiganta la caja: <code>#cajaPrueba { transform: scale(1.5); }</code></p>` },
+      { titulo: "Día 17 – Traslación", contenido: `<h3>Deslices Perfectos</h3><p><code>transform: translate(x, y)</code> empuja el elemento de su posición original de forma optimizada por la GPU del ordenador para animar increíblemente suave sin atascar el reflow de la página web.</p><p><strong>Reto:</strong> Muévelo suave: <code>#cajaPrueba { transform: translate(50px, 20px); }</code></p>` },
+      { titulo: "Día 18 – Transiciones", contenido: `<h3>Fluidez Mágica</h3><p>La <code>transition</code> indica cuánto tiempo (en segundos) debe demorarse el navegador en aplicar el nuevo cambio visual (por ejemplo, cambiar color repentinamente y volverlo a hacer suavizado y progresivo).</p><p><strong>Reto:</strong> Suaviza los cambios: <code>#cajaPrueba { transition: background 1s ease; }</code></p>` },
+      { titulo: "Día 19 – Hover", contenido: `<h3>Interacción de Ratón</h3><p>La pseudo-clase <code>:hover</code> le dice a CSS qué propiedades deben modificarse única y temporalmente mientras el flecha del ratón del usuario pase silenciosamente sobre de esa etiqueta.</p><p><strong>Reto:</strong> Cambia en mouse: <code>#cajaPrueba:hover { background: red; }</code></p>` },
+      { titulo: "Día 20 – Cursores", contenido: `<h3>Feedback de flecha</h3><p>Para mejorar la experiencia visual, podemos engañar al usuario modificando el ícono de su puntero: sea la famosa manito de enlace ("pointer") o hasta el reloj de arena ("wait")</p><p><strong>Reto:</strong> Muestra la manito de clic: <code>#cajaPrueba { cursor: pointer; }</code></p>` },
+      { titulo: "Día 21 – Gradientes", contenido: `<h3>Mezclas Profundas</h3><p>La potente regla <code>background: linear-gradient()</code> renderiza automáticamente un lienzo transicional de pintura entre dos o más colores dictados hacia un ángulo geométrico elegido.</p><p><strong>Reto:</strong> Pinta un gradiente hermoso: <code>#cajaPrueba { background: linear-gradient(red, blue); }</code></p>` },
+      { titulo: "Día 22 – Filtros", contenido: `<h3>Filtros Fotográficos</h3><p>CSS3 permite filtros nativos estilo Instagram (blur, grayscale, invert, sepia). El navegador renderizará un efecto de post-procesado carísimo al instante sobre nuestra capa y todos sus elementos.</p><p><strong>Reto:</strong> Borrosa y girsásea: <code>#cajaPrueba { filter: blur(5px); }</code></p>` },
+      { titulo: "Día 23 – Variables", contenido: `<h3>Mantenimiento Escalable</h3><p>Podemos "guardar" colores globalmente en un root bajo formato <code>--nombre: valor;</code>. Luego se la invocamos a cientos de lugares con <code>var()</code> y ¡si la cambias, cambiarán todos de un solo plumazo!</p><p><strong>Reto:</strong> Define y usa variables: <code>:root { --c: #00ff66; } #cajaPrueba { background: var(--c); }</code></p>` },
+      { titulo: "Día 24 – Display Flex", contenido: `<h3>Alineamiento Inteligente</h3><p>Flexbox soluciona años de batallas oscuras en CSS. Poner <code>display: flex;</code> a un div 'padre' obliga mágicamente a sus hijos a alinearse matemáticamente en horizontal como cintas adyacentes elásticas predecibles.</p><p><strong>Reto:</strong> Aplica <code>display: flex;</code> a contenedores.</p>` },
+      { titulo: "Día 25 – Justify Content", contenido: `<h3>Distribucion Horizontal</h3><p>Dentro un flexbox ya creado, <code>justify-content</code> ordena a los elementos sobre el Eje Primario. Valores como "space-between" crearán simetría perfecta distribuyendo espacios libres equitativamente entre los ítems huérfanos.</p><p><strong>Reto:</strong> Aplica <code>justify-content: space-between;</code> en un flexbox.</p>` },
+      { titulo: "Día 26 – Align Items", contenido: `<h3>Centrado Vertical Absoluto</h3><p>El santo grial del centrado: usar <code>align-items: center;</code> junto con "justify-content" dentro de un ambiente de display flex centra cualquier etiqueta brutalmente en el mismísimo medio exacto del bloque.</p><p><strong>Reto:</strong> Aplica <code>align-items: center;</code> en un contenedor flexbox.</p>` },
+      { titulo: "Día 27 – CSS Grid", contenido: `<h3>Maquetación de Tablero</h3><p>Donde flexbox es 1D (solo filas O solo columnas), Grid es poder en 2 Dimensiones. <code>display: grid;</code> arma cuadrículas estilo Excel ultra avanzadas con líneas e islas de tamaño que crecen por fracción (FR).</p><p><strong>Reto:</strong> <code>display: grid; grid-template-columns: 1fr 1fr;</code></p>` },
+      { titulo: "Día 28 – Z-Index", contenido: `<h3>Eje de Profundidad 3D</h3><p>Al tener varias cajas superpuestas volando por la pantalla, el último elemento escrito ganará (saliendo "al frente"). Cambiamos ese orden del Eje-Z de manera brutal inyectando valores positivos como <code>z-index: 99;</code>.</p><p><strong>Reto:</strong> <code>#cajaPrueba { z-index: 99; position: relative; }</code></p>` },
+      { titulo: "Día 29 – Posición", contenido: `<h3>Rebelión de Cajas</h3><p><code>position: absolute;</code> hace levitar al objeto destruyendo el flujo del bloque: El elemento ignora márgenes y reglas; le dirás literalmente coordenadas "top" e "izquierdas" de la pantalla por la fuerza dictatorial.</p><p><strong>Reto:</strong> <code>#cajaPrueba { position: absolute; top: 10px; }</code></p>` },
+      { titulo: "Día 30 – Animaciones (Keyframes)", contenido: `<h3>Directores de Cine Web</h3><p>A diferencia de transitions, una animación CSS declara fotogramas en porcentajes "keyframes (0% esto, 100% lo otro)". Luego las llamas a infinito, creando bucles, rotaciones contínuas y temblores espectaculares 100% estables.</p><p><strong>Reto:</strong> Animación de parpadeo a la caja usando <code>@keyframes</code>.</p>` },
+      { titulo: "Día 31 – Mini Proyecto CSS", contenido: `<h3>La Fusión Artística Mágica 🥳</h3><p>¡Eres un diseñador avanzado! Este es el final. Ya dominas Grid, sombreado flotante y filtros interactivos de render complejo que hace unas décadas paralizaban al hardware más caro del mercado moderno.</p><p><strong>Reto:</strong> Transforma la caja en un botón futurista animado y elegante aplicando todos los conocimientos de estos 30 días.</p>` }
+    ];
+
+    const menu = document.getElementById("menu");
+    const contenido = document.getElementById("contenido");
+
+    clases.forEach(clase => {
+      const boton = document.createElement("button");
+      boton.textContent = clase.titulo;
+      boton.onclick = () => {
+        contenido.innerHTML = `<h2>${clase.titulo}</h2><div>${clase.contenido}</div>`;
+      };
+      menu.appendChild(boton);
+    });
+
+    function ejecutar() {
+      const codigo = document.getElementById("codigo").value;
+      document.getElementById("estiloInyectado").innerHTML = codigo;
+    }
+  </script>
+  
+  <script src="../lang.js"></script>
+  <script src="../script.js"></script>
+  <script src="/js/volumeControl.js"></script>
+</body>
+</html>
+
+

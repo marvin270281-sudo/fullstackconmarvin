@@ -1,0 +1,272 @@
+/* =========================================
+   ESTILOS PREMIUM PARA PLAN DE ESTUDIOS
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap');
+
+/* Redefiniendo variables globales para esta sección */
+:root {
+  --primary: #00ff66; /* Neon Light Green */
+  --secondary: #000080; /* Navy Blue */
+  --bg-dark: #050a1f; /* Near Black / Deep Navy */
+  --bg-card: rgba(255, 255, 255, 0.05); /* Lighter glass */
+  --text-main: #f8fafc;
+  --text-muted: #cbd5e1;
+  
+  --html-color: #e34f26;
+  --css-color: #264de4;
+  --js-color: #f7df1e;
+  --react-color: #61dafb;
+  --fullstack-color: #00ff88;
+}
+
+body.estudios-page, body {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  padding-top: 80px; 
+}
+
+/* Modificación dinámica del fondo de la página de estudios */
+.estudios-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  margin-top: 20px;
+}
+
+/* -------------------------------------
+   SELECTOR DE IDIOMAS MODERNO
+   ------------------------------------- */
+.language-switcher {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 8px 12px;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.2);
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  filter: grayscale(0.8);
+}
+
+.lang-btn:hover {
+  filter: grayscale(0);
+  transform: scale(1.15);
+}
+
+.lang-btn.active {
+  filter: grayscale(0);
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+/* -------------------------------------
+   HEADER ESTUDIOS
+   ------------------------------------- */
+.estudios-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.gradient-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #00ff66 0%, #00cc52 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+  text-shadow: 0 5px 15px rgba(0, 255, 102, 0.2);
+  letter-spacing: -1px;
+}
+
+body.noche .gradient-text {
+  background: linear-gradient(135deg, #00ff66 0%, #00cc52 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* -------------------------------------
+   GRID DE TARJETAS
+   ------------------------------------- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding-bottom: 80px;
+}
+
+.course-card {
+  background: rgba(20, 20, 25, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  color: white; /* Fuerza un color claro para las tarjetas en este diseño */
+}
+
+/* Efectos de Hover Wow */
+.course-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--primary);
+  transition: height 0.3s ease;
+  z-index: 1;
+}
+
+.course-card:hover::before {
+  height: 6px;
+}
+
+/* Colores específicos de la tarjeta */
+.html-card::before { background: var(--html-color); }
+.css-card::before { background: var(--css-color); }
+.js-card::before { background: var(--js-color); }
+.react-card::before { background: var(--react-color); }
+.fullstack-card::before { background: linear-gradient(90deg, #000080, #00ff66); }
+
+/* Íconos */
+.icon-wrapper {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 2.5rem;
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.html-card .icon-wrapper { color: var(--html-color); box-shadow: 0 0 20px rgba(227, 79, 38, 0.2); }
+.css-card .icon-wrapper { color: var(--css-color); box-shadow: 0 0 20px rgba(38, 77, 228, 0.2); }
+.js-card .icon-wrapper { color: var(--js-color); box-shadow: 0 0 20px rgba(247, 223, 30, 0.2); }
+.react-card .icon-wrapper { color: var(--react-color); box-shadow: 0 0 20px rgba(97, 218, 251, 0.2); }
+.fullstack-card .icon-wrapper { color: var(--fullstack-color); box-shadow: 0 0 20px rgba(0, 255, 136, 0.2); }
+
+.course-card:hover .icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.course-card h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  z-index: 2;
+  position: relative;
+}
+
+.course-card p {
+  color: #a0aec0;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 25px;
+  flex-grow: 1;
+  z-index: 2;
+  position: relative;
+}
+
+/* Botones Premium */
+.btn-primary {
+  display: inline-block;
+  padding: 12px 25px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+}
+
+.html-card .btn-primary:hover { background: var(--html-color); border-color: var(--html-color); }
+.css-card .btn-primary:hover { background: var(--css-color); border-color: var(--css-color); }
+.js-card .btn-primary:hover { background: var(--js-color); border-color: var(--js-color); color: black;}
+.react-card .btn-primary:hover { background: var(--react-color); border-color: var(--react-color); color: black;}
+.fullstack-card .btn-primary:hover { background: var(--primary); border-color: var(--primary); }
+
+/* Ajustes Footer para Estudios */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: rgba(2, 5, 15, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  text-align: center;
+  border-top: 1px solid rgba(0, 255, 102, 0.3);
+}
+
+/* Animaciones de Entrada */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.course-card {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.course-card:nth-child(1) { animation-delay: 0.1s; }
+.course-card:nth-child(2) { animation-delay: 0.2s; }
+.course-card:nth-child(3) { animation-delay: 0.3s; }
+.course-card:nth-child(4) { animation-delay: 0.4s; }
+.course-card:nth-child(5) { animation-delay: 0.5s; }

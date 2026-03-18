@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Conoce al Creador - Aprenda Fullstack con Marvin</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .creator-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 150px;
+      padding: 30px;
+      background: rgba(10, 25, 49, 0.85); /* Navy blue translucent */
+      border: 1px solid #00ff66;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
+      max-width: 600px;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .creator-image {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 4px solid #00ff66;
+      object-fit: cover;
+      object-position: top;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px #00ff66;
+    }
+
+    .creator-title {
+      color: #00ff66;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .creator-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #e2e8f0;
+      margin-bottom: 20px;
+    }
+
+    .btn-volver {
+      display: inline-block;
+      padding: 10px 20px;
+      background: transparent;
+      color: #00ff66;
+      border: 1px solid #00ff66;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-volver:hover {
+      background: #00ff66;
+      color: #050a1f;
+      box-shadow: 0 0 10px #00ff66;
+    }
+  </style>
+</head>
+<body>
+  <!-- Selector de Idiomas -->
+  <div class="language-switcher" style="position: fixed; top: 80px; right: 20px; display: flex; gap: 8px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 8px 12px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.2); z-index: 999;">
+    <button class="lang-btn active" data-lang="es" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇪🇸</button>
+    <button class="lang-btn" data-lang="en" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇬🇧</button>
+    <button class="lang-btn" data-lang="fr" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇫🇷</button>
+    <button class="lang-btn" data-lang="pt-br" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇧🇷</button>
+    <button class="lang-btn" data-lang="pt-pt" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇵🇹</button>
+  </div>
+
+  <!-- 🔗 Menú de navegación -->
+  <nav class="navbar">
+    <ul>
+      <li id="logoMarVin">Aprenda Fullstack con Marvin</li>
+      <li><a href="videosestudos/espaciodeestudos.html" data-i18n="nav_home">Inicio</a></li>
+      <li><a href="javaestudo/javaestudo.html" data-i18n="nav_learn_remember">Aprender y Recordar</a></li>
+      <li><a href="juego/juego.html" data-i18n="nav_learn_fun">Aprender con diversión</a></li>
+      <li><a href="estudios/index.html" data-i18n="nav_90_days">Plan 90 Días</a></li>
+    </ul>
+  </nav>
+
+  <div class="creator-container">
+    <!-- El usuario deberá guardar su imagen como creador.jpg en la carpeta img -->
+    <img src="img/creador.jpg" alt="Foto de Marvin" class="creator-image" onerror="this.src='img/coders.png'">
+    
+    <h1 class="creator-title" data-i18n="creator_title">¡Hola! Soy Marvin 👋</h1>
+    
+    <p class="creator-text" data-i18n="creator_desc1">Soy brasileño, tengo 44 años, vivo en España, estoy felizmente casado con Fernanda y soy el orgulloso padre de Fernandiño.</p>
+    
+    <p class="creator-text" data-i18n="creator_desc2">Creé este espacio porque creo fielmente en el poder de <strong>aprender juntos</strong>. No importa tu edad, la experiencia previa o los errores de código que tengas en el camino: el mundo del desarrollo de software es un viaje que se disfruta y asimila muchísimo más en compañía de personas apoyándose mutuamente.</p>
+    
+    <p class="creator-text" data-i18n="creator_desc3">Si yo estoy logrando mi transición al mundo Tech a esta grandiosa edad, <strong>TÚ TAMBIÉN PUEDES</strong>. Todo esfuerzo vale la pena cuando hay dedicación. ¡Bienvenidos a la familia y a seguir programando!</p>
+    
+  </div>
+
+  <footer>
+    <h3><a href="creador.html" data-i18n="footer_creator" style="color:#00ff66; text-decoration:none; font-weight:bold;">Haz click aqui conosca creador dela web</a></h3>
+  </footer>
+  
+  <script src="lang.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+

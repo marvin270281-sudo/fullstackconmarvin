@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo sobre JavaScript en 21 días - Aprenda Fullstack con Marvin</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <!-- Selector de Idiomas -->
+  <div class="language-switcher" style="position: fixed; top: 80px; right: 20px; display: flex; gap: 8px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 8px 12px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.2); z-index: 999;">
+    <button class="lang-btn active" data-lang="es" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇪🇸</button>
+    <button class="lang-btn" data-lang="en" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇬🇧</button>
+    <button class="lang-btn" data-lang="fr" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇫🇷</button>
+    <button class="lang-btn" data-lang="pt-br" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇧🇷</button>
+    <button class="lang-btn" data-lang="pt-pt" style="font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 35px; height: 35px; border:none; background:transparent;">🇵🇹</button>
+  </div>
+
+  <!-- 🔗 Menú de navegación -->
+  <nav class="navbar">
+    <ul>
+      <li id="logoMarVin">Aprenda Fullstack con Marvin</li>
+      <li><a href="/videosestudos/espaciodeestudos.html" data-i18n="nav_home">Inicio</a></li>
+      <li><a href="/javaestudo/javaestudo.html" data-i18n="nav_learn_remember">Aprender y Recordar</a></li>
+      <li><a href="/juego/juego.html" data-i18n="nav_learn_fun">Aprender con diversión</a></li>
+
+      <li><a href="/estudios/index.html" data-i18n="nav_90_days">Plan 90 Días</a></li>
+</ul>
+<!-- Audio Musica de Fundo-->
+  </nav>
+ <audio id="musicaFundo" autoplay loop>
+  <source src="/audio/dontmix.mp3" type="audio/mp3">
+</audio>
+
+<div class="control-volumen">
+  <button id="botaoVolume">🔉 Ajustar volumen</button>
+  <input type="range" id="controleVolume" min="0" max="1" step="0.01" value="0.1" style="display: none;">
+</div>
+
+<!-- Menu Dias y Temas -->
+  <section class="menu dias y temas" style="text-align: center;">
+    <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
+      <a href="practica_html.html" class="btn-practica">Aprende HTML5</a>
+      <a href="practica_css.html" class="btn-practica">Aprende CSS3</a>
+      <a href="javaestudo.html" class="btn-practica active" style="background: #225b06;">Aprende JavaScript</a>
+      <a href="practica_react.html" class="btn-practica">Aprende React</a>
+    </div>
+    <h1 style="color: #00ff66;"><strong>Practicando JavaScript con Marvin 🎓</strong></h1>
+  <nav id="menu"></section>
+
+  <section id="contenido"></section>
+
+  <section class="editor">
+    <h1>💻 Área de práctica</h1>
+    <h1><textarea id="codigo" rows="15" cols="60">// Escribe tu código JavaScript aquí</textarea><br></h1>
+    <button onclick="ejecutar()">Ejecutar</button>
+    <pre id="resultado"></pre>
+  </section>
+
+
+
+
+  <script>
+    const clases = [
+      { titulo: "Día 1 – Tu primer código", contenido: `<pre>console.log("¡Hola Marcus! Estoy aprendiendo JavaScript.");</pre><p><strong>Reto:</strong> Personaliza el mensaje.` },
+      { titulo: "Día 2 – Variables", contenido: ` En JavaScript, las variables son como etiquetas o nombres que se asignan a valores para poder referenciarlos y usarlos en diferentes partes del código. Son fundamentales para almacenar datos que pueden cambiar durante la ejecución de un programa. 
+¿Qué son las variables?
+Las variables son contenedores de memoria que almacenan datos. 
+Se usan para guardar información como números, texto, fechas, o incluso objetos más complejos. 
+El valor de una variable puede cambiar a lo largo del programa, de ahí su nombre, variable. 
+Declaración de variables:
+En JavaScript, puedes declarar variables usando las palabras clave var, let, o const. 
+var:
+Se usaba en versiones antiguas de JavaScript y tiene alcance de función o global. Puede ser reasignada y redeclarada.
+let:
+Es la forma recomendada para declarar variables en la actualidad. Tiene alcance de bloque (dentro de llaves {}) y puede ser reasignada, pero no redeclarada dentro del mismo ámbito.
+var nombre = "Juan"; // Declaración con var
+let edad = 30;       // Declaración con let
+const pi = 3.1416;  // Declaración con const
+const:
+Se usa para declarar constantes, es decir, valores que no cambian después de ser asignados. También tiene alcance de bloque y no puede ser reasignad     <pre>let nombre = "Marcus"; const pais = "España"; console.log("Hola, " + nombre + " desde " + pais);</pre><p><strong>Reto:</strong> Crea tus variables de edad y ciudad.` },
+      { titulo: "Día 3 – Operadores", contenido:  `En JavaScript, los operadores son símbolos o palabras clave que realizan operaciones sobre uno o más operandos (valores o variables). Existen varios tipos de operadores, incluyendo aritméticos, de asignación, comparación y lógicos. Estos operadores permiten manipular datos, realizar cálculos, comparar valores y evaluar condiciones en el código JavaScript. 
+Tipos de Operadores:
+Operadores Aritméticos:
+Realizan operaciones matemáticas como suma (+), resta (-), multiplicación (), división (/), módulo (%) y exponenciación (*). <pre>let a = 10; let b = 5; console.log("Suma:", a + b); console.log("¿Son iguales?", a === b);</pre><p><strong>Reto:</strong> Prueba diferentes comparaciones.` },
+      { titulo: "Día 4 – Funciones", contenido: `En JavaScript, una función es un bloque de código reutilizable diseñado para realizar una tarea específica. Se define con la palabra clave function, seguida de un nombre, una lista de parámetros entre paréntesis y un bloque de código entre llaves que contiene las instrucciones a ejecutar. Las funciones pueden recibir datos como entrada a través de parámetros y opcionalmente devolver un valor como resultado. <pre>function saludar(nombre) { console.log("Hola " + nombre); } saludar("Marcus");</pre><p><strong>Reto:</strong> Crea una función que calcule el doble.` },
+      { titulo: "Día 5 – Arrays", contenido: `En JavaScript, un array es una estructura de datos que permite almacenar una colección ordenada de elementos. Estos elementos pueden ser de diferentes tipos y se acceden a través de un índice numérico, comenzando desde cero. Los arrays son dinámicos, lo que significa que su tamaño puede cambiar a medida que se agregan o eliminan elementos. 
+Características principales de los arrays en JavaScript:
+Colección ordenada:
+Los elementos se almacenan en un orden específico y se puede acceder a ellos mediante su posición (índice).
+Elementos de diferentes tipos:
+A diferencia de otros lenguajes, JavaScript permite que un array contenga elementos de distintos tipos de datos (números, cadenas, objetos, etc.). Aunque no es una buena práctica, es técnicamente posible.
+Dinámicos:
+Los arrays en JavaScript no tienen un tamaño fijo, se pueden agregar o eliminar elementos en cualquier momento.
+Indices:
+Cada elemento dentro del array tiene un índice numérico que se usa para acceder a él. Los índices comienzan en 0.
+Métodos:
+JavaScript proporciona una variedad de métodos para manipular arrays, como agregar, eliminar, modificar o buscar elementos. <pre>let frutas = ["manzana", "banana", "naranja"]; console.log(frutas[0]);</pre><p><strong>Reto:</strong> Muestra tu fruta favorita.` },
+      { titulo: "Día 6 – Objetos", contenido: `En JavaScript, un objeto es una estructura de datos que almacena propiedades, las cuales son pares clave-valor. Las claves son cadenas (o símbolos) y los valores pueden ser cualquier tipo de dato, incluyendo otros objetos, funciones, o arrays. Los objetos son fundamentales en JavaScript y permiten organizar y manipular datos de manera efectiva. 
+Conceptos clave:
+Propiedades:
+Un objeto se compone de propiedades, cada una con una clave (nombre) y un valor asociado. 
+Métodos:
+Las funciones dentro de un objeto se llaman métodos. Estos definen el comportamiento del objeto. 
+Objetos literales:
+La forma más sencilla de crear objetos es mediante objetos literales, que son objetos definidos directamente en el código con sus propiedades. 
+Objetos predefinidos:
+JavaScript tiene objetos predefinidos como Math, Date, Array, entre otros, que ofrecen funcionalidades específicas. 
+Programación orientada a objetos (POO):
+JavaScript admite la POO, donde los objetos son la base de la organización del código y la interacción entre ellos. <pre>let persona = { nombre: "Marcus", edad: 30 }; console.log(persona.nombre);</pre><p><strong>Reto:</strong> Crea un objeto de tu ordenador.` },
+      { titulo: "Día 7 – Condicionales", contenido: `<p>
+En JavaScript, los condicionales permiten ejecutar diferentes bloques de código dependiendo de si una condición es verdadera o falsa. Los más 
+comunes son if, else if, else, y el operador ternario ?:. Los condicionales son esenciales para la toma de decisiones en la lógica de un programa. 
+<pre>if (edad > 18) { console.log("Mayor de edad"); }</pre><p><strong>Reto:</strong> Condición para clima.
+  <p>Consideraciones:
+Las condiciones se evalúan como expresiones booleanas (verdadero o falso). 
+Los operadores lógicos && (AND), || (OR), y ! (NOT) pueden combinarse con las condiciones para construir expresiones más complejas. 
+Es común que los bloques de código dentro de las estructuras condicionales estén delimitados por llaves {}. Sin embargo, si solo hay una instrucción dentro del bloque, las llaves pueden omitirse. 
+En el caso de switch, es importante usar la declaración break para evitar que el código siga ejecutándose en los casos siguientes después de encontrar una coincidencia. ` },
+      { titulo: "Día 8 – Bucles", contenido: `En JavaScript, los bucles son estructuras que permiten repetir un bloque de código varias veces. Los tipos más comunes son for, while, y do...while, cada uno con su propia sintaxis y casos de uso ideales. Los bucles son fundamentales para automatizar tareas repetitivas y manipular datos de manera eficiente. <pre>for (let i = 0; i < 5; i++) { console.log(i); }</pre><p><strong>Reto:</strong> Números pares.
+        <p>Conceptos Clave:
+Condición: Una expresión que se evalúa para determinar si el bucle debe continuar o detenerse. Normalmente devuelve un valor booleano (verdadero o falso).
+Iteración: Cada repetición del bucle.
+Contador: Variable que se utiliza para llevar la cuenta de las iteraciones. A menudo se inicializa antes del bucle y se incrementa/decrementa dentro de él.
+Incremento/Decremento: La operación que cambia el valor del contador en cada iteración. 
+Bucle Infinito:
+Es importante asegurarse de que la condición de un bucle eventualmente se vuelva falsa para evitar un bucle infinito, donde el código se ejecuta repetidamente sin parar. 
+Ejemplos Adicionales:
+for...in: Itera sobre las propiedades de un objeto. 
+for...of: Itera sobre los valores de un objeto iterable (como un array). 
+Funciones de Array (.forEach, .map, etc.): Proporcionan formas más concisas de iterar sobre arrays y realizar operaciones en cada elemento. ` },
+      { titulo: "Día 9 – Eventos", contenido: `Visão geral criada por IA
+Cheque as informações importantes. Saiba mais
+En JavaScript, un evento es una señal o notificación que indica que algo ha sucedido en una página web. Estos eventos pueden ser causados por acciones del usuario (como clics o pulsaciones de teclas), por el navegador (como la carga de la página o cambios de tamaño) o por otros elementos de la página (como animaciones). <pre>button.addEventListener("click", function() { alert("¡Clic!"); });</pre><p><strong>Reto:</strong> Cambia fondo con botón.` },
+      { titulo: "Día 10 – DOM", contenido: `El DOM (Modelo de Objetos del Documento) en JavaScript es una interfaz que permite a los desarrolladores acceder y manipular la estructura, contenido y estilo de un documento HTML o XML como un árbol de nodos. Básicamente, es la forma en que JavaScript interactúa con la página web que se muestra en el navegador. 
+En resumen:
+Representación:
+El DOM convierte el código HTML en una estructura de árbol, donde cada elemento HTML es un nodo. <pre>document.getElementById("titulo").innerText = "Nuevo título";</pre><p><strong>Reto:</strong> Cambia texto.` },
+      { titulo: "Día 11 – Estilos", contenido: `En JavaScript, la manipulación de estilos puede realizarse de dos maneras principales: modificando directamente las propiedades del objeto style de un elemento HTML o agregando, eliminando o alternando clases CSS asociadas a ese elemento. La primera opción modifica directamente el estilo en línea, mientras que la segunda utiliza clases CSS para aplicar estilos definidos en una hoja de estilos. <pre>element.style.color = "red";</pre><p><strong>Reto:</strong> Cambia color al pasar el ratón.
+        <p>En resumen, la manipulación de estilos en JavaScript se puede realizar directamente sobre el objeto style o utilizando clases CSS. La segunda opción, al separar la presentación del código, suele ser la más recomendada. ` },
+      { titulo: "Día 12 – Clases y atributos", contenido: `En JavaScript, una clase es una plantilla para crear objetos, mientras que los atributos (también conocidos como propiedades) son las variables que almacenan datos dentro de un objeto. Las clases encapsulan datos y comportamiento, permitiendo la creación de objetos con características y acciones predefinidas. 
+Clases:
+Son plantillas para crear objetos.
+Definen la estructura y el comportamiento de los objetos.
+Se declaran con la palabra clave class.
+Pueden incluir un constructor para inicializar objetos.
+Permiten la herencia, creando jerarquías de clases. 
+Atributos (Propiedades):
+Son variables que almacenan datos dentro de un objeto.
+Se definen dentro de la clase, generalmente en el constructor.
+Se acceden y modifican utilizando la notación de punto (objeto.atributo).
+Pueden ser públicos (accesibles desde fuera de la clase) o privados (solo accesibles dentro de la clase). <pre>element.classList.add("activo");</pre><p><strong>Reto:</strong> Alterna clases.` },
+      { titulo: "Día 13 – Formularios", contenido: `En JavaScript, los formularios son elementos HTML que permiten a los usuarios ingresar datos y enviarlos a un servidor o procesarlos en el cliente. Se crean con la etiqueta <form> y contienen elementos de entrada como campos de texto, botones, menús desplegables, etc. JavaScript se usa para manejar eventos, validar datos y manipular el formulario antes de enviarlo. <pre>form.addEventListener("submit", validar);</pre><p><strong>Reto:</strong> Valida nombre.` },
+      { titulo: "Día 14 – Validación", contenido: `La validación en JavaScript se refiere al proceso de verificar que los datos ingresados por el usuario en un formulario sean válidos y cumplan con ciertos criterios antes de enviarlos al servidor. Esto ayuda a garantizar la integridad de los datos, mejorar la experiencia del usuario y reducir la carga en el servidor. La validación puede ser del lado del cliente (en el navegador) o del lado del servidor (en el servidor web). 
+Validación del lado del cliente:
+Propósito:
+Se realiza en el navegador del usuario para proporcionar retroalimentación inmediata y evitar errores antes de enviar los datos al servidor. 
+Beneficios:
+Reduce la carga en el servidor, mejora la experiencia del usuario al proporcionar alertas instantáneas, y previene errores comunes de entrada. 
+Implementación:
+Se puede utilizar JavaScript para verificar campos obligatorios, tipos de datos (números, correos electrónicos), longitudes de texto, y formatos específicos utilizando expresiones regulares. 
+Validación del lado del servidor:
+Propósito:
+Se realiza después de que los datos han sido enviados al servidor, y es crucial para la seguridad y la integridad de los datos, ya que los datos del cliente pueden ser manipulados. 
+Beneficios:
+Asegura que los datos son seguros y válidos, incluso si la validación del lado del cliente falla, y previene ataques como el cross-site scripting (XSS) o la inyección de código. 
+Implementación:
+Se utilizan métodos y funciones específicas del lenguaje del servidor (como PHP, Python, Java, etc.) para realizar la validación de los datos recibidos<pre>if (input.value === "") { alert("Campo vacío"); }</pre><p><strong>Reto:</strong> Verifica email.` },
+      { titulo: "Día 15 – Teclado", contenido: `En JavaScript, el manejo de eventos del teclado permite detectar y responder a las acciones del usuario en el teclado. Se utilizan principalmente tres tipos de eventos: keydown, keyup y keypress. keydown se activa al presionar una tecla, keyup al soltarla, y keypress se activa repetidamente mientras se mantiene presionada la tecla. Estos eventos se pueden asociar a elementos HTML, como el documento completo o elementos específicos, para capturar la entrada del usuario y realizar acciones en consecuencia, como navegar o interactuar con la interfaz de usuario. 
+Eventos de teclado:
+keydown: Se activa cuando una tecla es presionada.
+keyup: Se activa cuando una tecla es soltada.
+keypress: Se activa repetidamente mientras una tecla se mantiene presionada. <pre>input.addEventListener("keydown", function(e) { console.log(e.key); });</pre><p><strong>Reto:</strong> Detectar "Enter".` },
+      { titulo: "Día 16 – JSON", contenido: `JSON (JavaScript Object Notation) es un formato ligero para el intercambio de datos basado en texto. Se utiliza para representar datos estructurados de forma legible tanto para humanos como para máquinas, lo que lo hace ideal para la comunicación entre aplicaciones web y servidores, así como para el almacenamiento de datos. 
+En JavaScript, JSON se utiliza principalmente para: 
+Serializar objetos:
+Convertir objetos JavaScript a cadenas JSON para enviarlos a un servidor o almacenarlos.
+Deserializar cadenas JSON:
+Convertir cadenas JSON recibidas de un servidor o cargadas desde un archivo a objetos JavaScript para su manipulación.
+Sintaxis básica de JSON:
+Objetos: Representados por llaves {} y contienen pares clave-valor, donde las claves son cadenas entre comillas dobles y los valores pueden ser cadenas, números, booleanos, null, objetos o arreglos.
+Arreglos: Representados por corchetes [] y contienen una lista de valores.
+Tipos de datos: JSON soporta cadenas (entre comillas dobles), números, booleanos (true o false), null y objetos/arreglos anidados. 
+Métodos en JavaScript para trabajar con JSON:
+JSON.parse(cadena): Convierte una cadena JSON válida a un objeto JavaScript.
+JSON.stringify(objeto): Convierte un objeto JavaScript a una cadena JSON. <pre>let datos = { nombre: "Marcus" }; let texto = JSON.stringify(datos);</pre><p><strong>Reto:</strong> Convierte objeto a JSON.` },
+      { titulo: "Día 17 – LocalStorage", contenido: `El localStorage en JavaScript es una característica que permite a las aplicaciones web almacenar datos de forma persistente en el navegador del usuario, incluso después de cerrar la ventana o pestaña del navegador. Los datos se almacenan como pares clave-valor, y solo son accesibles por el mismo dominio que los creó. 
+Características principales:
+Persistencia:
+Los datos se almacenan de forma permanente en el navegador, a menos que se eliminen explícitamente o se borre el historial del navegador. 
+Almacenamiento por dominio:
+Los datos almacenados en localStorage son específicos del dominio de la página web que los guarda. 
+Almacenamiento de cadenas:
+localStorage solo puede almacenar valores como cadenas de texto. Si necesitas guardar objetos o arrays, debes convertirlos a formato JSON antes de almacenarlos. 
+Tamaño limitado:
+localStorage tiene un límite de almacenamiento, generalmente entre 5MB y 10MB, dependiendo del navegador. 
+No se envía al servidor:
+A diferencia de las cookies, los datos almacenados en localStorage no se envían automáticamente al servidor con cada solicitud. 
+Operaciones básicas:
+Guardar datos: localStorage.setItem('clave', 'valor');
+Obtener datos: let valor = localStorage.getItem('clave');
+Eliminar un dato: localStorage.removeItem('clave');
+Eliminar todos los datos: localStorage.clear();<pre>localStorage.setItem("usuario", "Marcus");</pre><p><strong>Reto:</strong> Guarda nombre.` },
+      { titulo: "Día 18 – Temporizadores", contenido: `En JavaScript, los temporizadores (timers) permiten ejecutar código después de un cierto retraso o de forma repetida. Los más comunes son setTimeout y setInterval. setTimeout ejecuta una función una vez después de un período de tiempo, mientras que setInterval ejecuta una función repetidamente a intervalos regulares. Ambos métodos son cruciales para la gestión de tareas asíncronas, animaciones y la interacción fluida del usuario. 
+setTimeout:
+Función: Ejecuta una función después de un tiempo especificado (en milisegundos).
+Sintaxis: setTimeout(función, retraso)<pre>setTimeout(() => { alert("Hola"); }, 2000);</pre><p><strong>Reto:</strong> Reloj que actualice cada segundo.` },
+      { titulo: "Día 19 – Interactividad", contenido: `JavaScript permite la interactividad en páginas web mediante la manipulación del DOM, la gestión de eventos y la creación de interfaces dinámicas. Permite que los usuarios interactúen con elementos HTML, cambien su contenido o estilos, y respondan a acciones del usuario como clics o envíos de formularios. Es esencial para el desarrollo web moderno y se utiliza en aplicaciones web, juegos, y más allá. 
+Conceptos clave de la interactividad en JavaScript:
+Manipulación del DOM:
+JavaScript puede acceder y modificar la estructura, el contenido y los estilos de los elementos HTML de una página web, lo que permite crear elementos dinámicos y cambiantes. 
+Eventos:
+Los eventos son acciones del usuario o del navegador, como clics, movimientos del ratón, o el envío de formularios. JavaScript permite asociar funciones a estos eventos para que se ejecuten cuando ocurran, permitiendo una respuesta dinámica a la interacción del usuario. 
+Funciones:
+Las funciones son bloques de código reutilizables que pueden ser llamados para realizar tareas específicas, como validar datos de un formulario o actualizar la interfaz de usuario. Pueden ser llamadas en respuesta a eventos o en otras partes del código. 
+Actualizaciones dinámicas:
+JavaScript permite que una página web se actualice sin necesidad de recargarla por completo, lo que mejora la experiencia del usuario y hace que las aplicaciones web sean más rápidas y eficientes. 
+Ejemplos de interactividad con JavaScript:
+Validación de formularios:
+JavaScript puede verificar los datos ingresados por el usuario en un formulario antes de enviarlo al servidor, mejorando la calidad de los datos y la experiencia del usuario. 
+Animaciones:
+JavaScript puede crear animaciones complejas y efectos visuales para hacer que las páginas web sean más atractivas y dinámicas. 
+Menús desplegables y botones:
+JavaScript permite crear menús desplegables, botones interactivos y otros elementos de la interfaz que responden a las acciones del usuario. 
+Juegos y aplicaciones web:
+JavaScript es la base para el desarrollo de juegos y aplicaciones web interactivas, permitiendo la creación de experiencias complejas y dinámicas. 
+En resumen, JavaScript es una herramienta fundamental para añadir interactividad a las páginas web, permitiendo a los desarrolladores crear experiencias de usuario más dinámicas, atractivas y eficientes. <p>Crea página con botones que cambien contenido.</p>` },
+      { titulo: "Día 20 – Álbum con efecto", contenido: `Un álbum con efecto en JavaScript es una aplicación web que muestra imágenes en forma de álbum y utiliza efectos visuales o animaciones para mejorar la experiencia del usuario. Estos efectos se logran manipulando elementos HTML con JavaScript y CSS. Los efectos comunes incluyen transiciones suaves entre imágenes, zoom, rotación o efectos de desplazamiento. 
+Para crear un álbum con efectos en JavaScript, se pueden seguir estos pasos básicos:
+1. Estructura HTML:
+Se crea una estructura HTML que contenga las imágenes del álbum, típicamente usando elementos <img> dentro de un contenedor, como un <div>.
+2. Estilos CSS:
+Se aplican estilos CSS para definir la apariencia del álbum, como el tamaño de las imágenes, la disposición (horizontal, vertical, cuadrícula) y la transición entre imágenes. 
+3. Lógica JavaScript:
+Se utiliza JavaScript para:
+Seleccionar elementos: Se seleccionan los elementos HTML del álbum y las imágenes a través de selectores CSS.
+Manejar eventos: Se agregan eventos (como clics o desplazamientos) a los elementos del álbum para activar los efectos. 
+Modificar estilos: Se modifican los estilos de los elementos HTML para crear las animaciones y efectos deseados, por ejemplo, cambiando la posición, la opacidad o la transformación de las imágenes. 
+Controlar el flujo: Se utiliza JavaScript para controlar el orden en que se muestran las imágenes, ya sea secuencialmente o a través de una interfaz de navegación. 
+4. Animaciones:
+Se pueden implementar animaciones utilizando:
+setInterval: Para animaciones básicas, se puede usar setInterval para cambiar las propiedades de los elementos en intervalos regulares, creando una sensación de movimiento. 
+requestAnimationFrame: Para animaciones más complejas y suaves, se puede usar requestAnimationFrame que se sincroniza con la frecuencia de actualización del navegador, optimizando el rendimiento. 
+CSS Transitions y Animations: Se pueden utilizar las transiciones y animaciones de CSS para crear efectos visuales, controlándolos desde JavaScript. 
+En resumen, un álbum con efecto en JavaScript combina la estructura HTML de un álbum con la manipulación dinámica de elementos HTML proporcionada por JavaScript, creando una experiencia interactiva y visualmente atractiva para el usuario. <p>Agrega tus fotos en <code>.galeria</code> con efecto hover.</p>` },
+      { titulo: "Día 21 – Proyecto Final", contenido: `<p>Combina todo: variables, funciones, DOM, eventos. ¡Crea tu mini web!</p>` },
+      { titulo: "Día 22 – Promesas", contenido: `Las promesas representan un valor que puede estar disponible ahora, en el futuro o nunca. Son la base de la programación asíncrona moderna. <pre>let promesa = new Promise((res, rej) => res("Éxito!"));\npromesa.then(console.log);</pre><p><strong>Reto:</strong> Crea una promesa que falle y atrápala con .catch().` },
+      { titulo: "Día 23 – Async/Await", contenido: `Una sintaxis más limpia para consumir promesas, permitiendo escribir código asíncrono como si fuera síncrono. <pre>async function buscar() { let res = await fetch("url"); }</pre><p><strong>Reto:</strong> Reescribe el fetch clásico con async/await.` },
+      { titulo: "Día 24 – Fetch API", contenido: `Permite hacer peticiones HTTP asíncronas para obtener recursos externos. <pre>fetch('https://api.github.com/users/octocat')\n  .then(res => res.json())\n  .then(data => console.log(data.name));</pre><p><strong>Reto:</strong> Llama a una API pública y muestra su resultado en pantalla.` },
+      { titulo: "Día 25 – Errores", contenido: `El uso de try/catch permite interceptar errores en tiempo de ejecución para que la app no colapse. <pre>try { \n  let x = y + 1; \n} catch (error) { \n  console.log("Algo salió mal"); \n}</pre><p><strong>Reto:</strong> Provoca un error de sintaxis y captúralo.` },
+      { titulo: "Día 26 – Módulos", contenido: `Import y Export permiten dividir nuestro código en múltiples archivos. <pre>// En archivo.js\nexport const nombre = "Marvin";\n// En app.js\nimport { nombre } from './archivo.js';</pre><p><strong>Reto:</strong> Exporta una función de sumar desde otro módulo.` },
+      { titulo: "Día 27 – Destructuración", contenido: `Facilita la extracción de valores de arreglos u objetos en variables distintas. <pre>const { nombre, edad } = { nombre: "Marvin", edad: 44 };\nconsole.log(nombre);</pre><p><strong>Reto:</strong> Destructura el primer elemento de un arreglo.` },
+      { titulo: "Día 28 – Spread y Rest", contenido: `El operador de los tres puntos (...) permite expandir o agrupar elementos fácilmente. <pre>let a = [1,2]; let b = [...a, 3]; // [1,2,3]</pre><p><strong>Reto:</strong> Combina dos arreglos usando el operador spread.` },
+      { titulo: "Día 29 – Template Strings", contenido: `Permiten expresiones incrustadas usando backticks en lugar de comillas simples o dobles. <pre>let app = "Fullstack"; \nconsole.log(\`Aprendiendo \${app} con Marvin\`);</pre><p><strong>Reto:</strong> Crea una tabla usando template strings multilínea.` },
+      { titulo: "Día 30 – Map, Filter, Reduce", contenido: `Son funciones de orden superior inmutables para trabajar con arrays dinámicamente. <pre>let nums = [1,2,3]; \nlet dobles = nums.map(n => n * 2);</pre><p><strong>Reto:</strong> Filtra un arreglo para obtener solo los números pares.` },
+      { titulo: "Día 31 – POO y Clases Avanzadas", contenido: `Las clases en JS son azúcar sintáctico sobre herencia de prototipos. <pre>class Developer { \n  constructor(name) { this.name = name; } \n  code() { console.log("Coding!"); } \n}</pre><p><strong>Reto:</strong> Crea una clase 'Estudiante' que herede de 'Developer'.` }
+    ];
+
+    const menu = document.getElementById("menu");
+    const contenido = document.getElementById("contenido");
+
+    clases.forEach((clase, index) => {
+      const boton = document.createElement("button");
+      boton.textContent = clase.titulo;
+      boton.onclick = () => {
+        contenido.innerHTML = `<h2>${clase.titulo}</h2><div>${clase.contenido}</div>`;
+      };
+      menu.appendChild(boton);
+    });
+
+    function ejecutar() {
+      const codigo = document.getElementById("codigo").value;
+      const resultado = document.getElementById("resultado");
+      try {
+        resultado.textContent = eval(codigo);
+      } catch (e) {
+        resultado.textContent = "Error: " + e.message;
+      }
+    }
+  </script>
+  <footer>
+    <h3><a href="../creador.html" data-i18n="footer_creator" style="color:#00ff66; text-decoration:none; font-weight:bold;">Haz click aqui conosca creador dela web</a></h3>
+  </footer>
+   <!-- 📦 Script funcionalidad -->
+  <script src="../lang.js"></script>
+  <script src="../script.js"></script>
+  <script src="/js/volumeControl.js"></script>
+</body>
+</html>
+
+
